@@ -6,13 +6,8 @@ use Illuminate\Http\Request;
 
 class NosotrosController extends Controller
 {
-    /**
-     * Mostrar la vista de la página "Nosotros".
-     *
-     * @return \Illuminate\View\View
-     */
-    public function index()
+    public function nosotros()
     {
-        return view('nosotros'); // Asegúrate de que esta vista exista en resources/views
+        return view('nosotros');
     }
 }

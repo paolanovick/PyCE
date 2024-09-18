@@ -8,6 +8,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\VinoController;
 use App\Http\Controllers\AsesoriaController;
 use App\Http\Controllers\SuscripcionController;
+use App\Http\Controllers\ClubController;
+
 
 // Página de inicio
 
@@ -18,11 +20,10 @@ Route::get('/blogs', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
 
 
-Route::get('/nosotros', [NosotrosController::class, 'index']);
+Route::get('/nosotros', [NosotrosController::class, 'nosotros']);
 
 
-// Página principal de suscripciones
-Route::get('/suscripcion', [HomeController::class, 'suscripcion'])->name('index');
+Route::get('/suscripcion', [SuscripcionController::class, 'index']);
 
 // Detalle de una suscripción específica
 Route::get('/suscripcion/{id}', [HomeController::class, 'show'])->name('suscripcion.detail');
@@ -36,5 +37,10 @@ Route::get('/asesoria', [AsesoriaController::class, 'index']);
 Route::get('/asesoria/{id}', [HomeController::class, 'asesoriaDetail'])->name('asesoria.detail');
 Route::post('/asesorias', [AsesoriaController::class, 'store'])->name('asesorias.store');
 
-Route::get('/vinos', [HomeController::class, 'index'])->name('vinos.index');
+Route::get('/vinos', [HomeController::class, 'vinos'])->name('vinos');
 Route::get('/vinos/{id}', [VinoController::class, 'show'])->name('vinos.show');
+
+
+Route::get('/suscripcion', [ClubController::class, 'index']);
+Route::get('/suscripcion/{id}', [ClubController::class, 'show']);
+Route::post('/club', [ClubController::class, 'store'])->name('club.store');
