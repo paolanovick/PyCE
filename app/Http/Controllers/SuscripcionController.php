@@ -3,25 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Suscripcion;
 
 class SuscripcionController extends Controller
 {
     public function index()
     {
-        return view('home.suscripcion');
+        $suscripciones = Suscripcion::all(); // Recupera todas las suscripciones de la base de datos
+        return view('home.suscripcion', compact('suscripciones')); // Pasa los datos a la vista
     }
 
-    public function show($id)
-    {
-        // Lógica para mostrar los detalles de suscripción
-        return view('home.suscripcion-detail', ['id' => $id]);
-    }
-
+    // app/Http/Controllers/SuscripcionController.php
     public function store(Request $request)
     {
-        // Validar y guardar los datos de suscripción
-        // Lógica para manejar la suscripción
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'email' => 'required|email|unique:suscripciones,email',
+        ]);
 
-        return redirect()->back()->with('success', '¡Te has suscrito al club de vinos!');
+        Suscripcion::create([
+            'nombre' => $request->input('nombre'),
+            'email' => $request->input('email'),
+        ]);
+
+        return redirect()->back()->with('success', '¡Te has suscrito exitosamente!');
     }
+
 }

@@ -7,6 +7,8 @@ namespace App\Http\Controllers;
 use App\Models\Vino;
 use App\Models\Asesoria; // Reemplaza BlogPost con Asesoria o el modelo que estés usando
 use Illuminate\Http\Request;
+use App\Models\Blog; // Asegúrate de tener esta línea
+
 
 class HomeController extends Controller
 {
@@ -14,6 +16,19 @@ class HomeController extends Controller
     {
         return view('home.home');
     }
+    public function show($id)
+    {
+        $blog = Blog::findOrFail($id);
+        return view('blog.show', compact('blog'));
+    }
+    public function vinos()
+    {
+        // Obtener la lista de vinos
+        $vinos = Vino::all(); // O cualquier lógica que uses para obtener los vinos
+
+        return view('vinos.index', ['vinos' => $vinos]);
+    }
+
 
     public function nosotros()
     {
@@ -71,16 +86,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        // Recupera un vino destacado por ID (asegúrate de que el ID exista en tu base de datos)
-        $vino = Vino::find(1);
+        // Obtener los últimos artículos del blog
+        $blogArticles = [
+            (object)['titulo' => 'Cómo Elegir el Vino Perfecto', 'resumen' => 'En este artículo, exploramos los factores clave para elegir el vino ideal para cualquier ocasión...'],
+            (object)['titulo' => 'Los Mejores Vinos de la Temporada', 'resumen' => 'Descubre cuáles son los vinos más recomendados para esta temporada...'],
+        ];
 
-        // Recupera los últimos 5 artículos de asesoría (ajusta la cantidad si es necesario)
-        $asesorias = Asesoria::latest()->take(5)->get();
-
-        // Pasa los datos a la vista 'home.index'
-        return view('home.index', [
-            'vino' => $vino,
-            'asesorias' => $asesorias
-        ]);
+        return view('home', ['blogArticles' => $blogArticles]);
     }
 }

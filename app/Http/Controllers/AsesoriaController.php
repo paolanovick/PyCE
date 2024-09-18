@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Asesoria;
 
 class AsesoriaController extends Controller
 {
@@ -19,9 +20,20 @@ class AsesoriaController extends Controller
 
     public function store(Request $request)
     {
-        // Validar y guardar los datos de asesoría
-        // Lógica para manejar la inscripción a la asesoría
+        $request->validate([
+            'titulo' => 'required|string|max:255',
+            'resumen' => 'required|string',
+            'contenido' => 'required|string',
+            'imagen' => 'nullable|string',
+        ]);
 
-        return redirect()->back()->with('success', '¡Te contactaremos en 24 horas!');
+        Asesoria::create([
+            'titulo' => $request->input('titulo'),
+            'resumen' => $request->input('resumen'),
+            'contenido' => $request->input('contenido'),
+            'imagen' => $request->input('imagen'),
+        ]);
+
+        return redirect()->back()->with('success', 'Asesoría solicitada exitosamente.');
     }
 }
