@@ -33,5 +33,4 @@ class SuscripcionController extends Controller
 
         return redirect()->back()->with('success', '¡Te has suscrito exitosamente!');
     }
-
 }

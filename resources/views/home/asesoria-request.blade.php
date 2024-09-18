@@ -1,10 +1,10 @@
-<!-- resources/views/home/asesoria-request.blade.php -->
-<x-layout>
-    <x-slot:title>Solicitar Asesoría</x-slot:title>
-
+<x-layout title="Solicitar Asesoría">
     <h1>Solicitar Asesoría</h1>
-    <form action="{{ route('asesorias.store') }}" method="POST">
+    <p>Para inscribirte en la asesoría {{ $asesoria->titulo }}, por favor completa el siguiente formulario:</p>
+    <!-- Aquí puedes agregar el formulario de inscripción -->
+    <form action="{{ route('asesoria.store') }}" method="POST">
         @csrf
+        <input type="hidden" name="asesoria_id" value="{{ $asesoria->id }}">
         <div class="form-group">
             <label for="titulo">Título:</label>
             <input type="text" id="titulo" name="titulo" class="form-control" required>
@@ -17,10 +17,7 @@
             <label for="contenido">Contenido:</label>
             <textarea id="contenido" name="contenido" class="form-control" required></textarea>
         </div>
-        <div class="form-group">
-            <label for="imagen">Imagen:</label>
-            <input type="text" id="imagen" name="imagen" class="form-control">
-        </div>
+       
         <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
     </form>
 </x-layout>

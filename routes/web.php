@@ -24,10 +24,10 @@ Route::get('/suscripcion', [SuscripcionController::class, 'index'])->name('suscr
 Route::get('/suscripcion/{id}', [SuscripcionController::class, 'show'])->name('suscripcion.show');
 Route::post('/suscripcion', [SuscripcionController::class, 'store'])->name('suscripcion.store');
 
-// Rutas de Asesoría
+
 Route::get('/asesoria', [AsesoriaController::class, 'index'])->name('asesoria.index');
-Route::get('/asesoria/{id}', [AsesoriaController::class, 'show'])->name('asesoria.show');
-Route::post('/asesorias', [AsesoriaController::class, 'store'])->name('asesorias.store');
+Route::get('/asesoria/{id}', [AsesoriaController::class, 'show'])->name('asesorias.show');
+Route::get('/asesorias/{id}/request', [AsesoriaController::class, 'request'])->name('asesorias.request');
 
 // Rutas de Vinos
 Route::get('/vinos', [HomeController::class, 'vinos'])->name('vinos');
@@ -35,3 +35,5 @@ Route::get('/vinos/{id}', [VinoController::class, 'show'])->name('vinos.show');
 
 // Rutas de Club
 Route::post('/club', [ClubController::class, 'store'])->name('club.store');
+
+Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');

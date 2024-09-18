@@ -9,16 +9,17 @@ class AsesoriaController extends Controller
 {
     public function index()
     {
+
         // Obtén todas las asesorías de la base de datos
         $asesorias = Asesoria::all();
-
+        //dd($asesorias); // Muestra el contenido de la variable $asesorias
         // Pasa las asesorías a la vista
         return view('home.asesoria', compact('asesorias'));
     }
     public function show($id)
     {
-        // Lógica para mostrar los detalles de asesoría
-        return view('home.asesoria-detail', ['id' => $id]);
+        $asesoria = Asesoria::findOrFail($id);
+        return view('home.asesoria-detail', compact('asesoria'));
     }
 
     public function store(Request $request)
@@ -34,9 +35,15 @@ class AsesoriaController extends Controller
             'titulo' => $request->input('titulo'),
             'resumen' => $request->input('resumen'),
             'contenido' => $request->input('contenido'),
-            'imagen' => $request->input('imagen'),
+            'imagen' => $validated['imagen'] ?? null,
         ]);
 
         return redirect()->back()->with('success', 'Asesoría solicitada exitosamente.');
+    }
+
+    public function request($id)
+    {
+        $asesoria = Asesoria::findOrFail($id);
+        return view('home.asesoria-request', compact('asesoria'));
     }
 }
