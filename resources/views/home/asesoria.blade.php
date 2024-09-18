@@ -1,4 +1,4 @@
-// resources/views/home/asesoria.blade.php
+
 <x-layout title="Asesorías">
     <h1>Asesorías</h1>
     <div class="row">

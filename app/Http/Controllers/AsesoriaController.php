@@ -9,9 +9,12 @@ class AsesoriaController extends Controller
 {
     public function index()
     {
-        return view('home.asesoria');
-    }
+        // Obtén todas las asesorías de la base de datos
+        $asesorias = Asesoria::all();
 
+        // Pasa las asesorías a la vista
+        return view('home.asesoria', compact('asesorias'));
+    }
     public function show($id)
     {
         // Lógica para mostrar los detalles de asesoría

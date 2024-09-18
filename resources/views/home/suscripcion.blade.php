@@ -1,4 +1,3 @@
-<!-- resources/views/home/suscripcion.blade.php -->
 <x-layout>
     <x-slot:title>Club de Vinos</x-slot:title>
 
@@ -20,17 +19,16 @@
 
     <!-- Formulario para crear una nueva suscripción -->
     <h2>Crear Nueva Suscripción</h2>
-   <form action="{{ route('suscripciones.store') }}" method="POST">
-    @csrf
-    <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" required>
-    </div>
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" name="email" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Suscribirse</button>
-</form>
-
+    <form action="{{ route('suscripcion.store') }}" method="POST">
+        @csrf
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Suscribirse</button>
+    </form>
 </x-layout>
