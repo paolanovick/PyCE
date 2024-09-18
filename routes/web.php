@@ -30,7 +30,8 @@ Route::get('/suscripcion/{id}', [HomeController::class, 'show'])->name('suscripc
 
 // Almacenar una nueva suscripción
 Route::post('/suscripcion', [SuscripcionController::class, 'store'])->name('suscripciones.store');
-
+Route::get('/suscripcion', [ClubController::class, 'index']);
+Route::get('/suscripcion/{id}', [ClubController::class, 'show']);
 
 // Páginas de Asesoría
 Route::get('/asesoria', [AsesoriaController::class, 'index']);
@@ -41,6 +42,5 @@ Route::get('/vinos', [HomeController::class, 'vinos'])->name('vinos');
 Route::get('/vinos/{id}', [VinoController::class, 'show'])->name('vinos.show');
 
 
-Route::get('/suscripcion', [ClubController::class, 'index']);
-Route::get('/suscripcion/{id}', [ClubController::class, 'show']);
+
 Route::post('/club', [ClubController::class, 'store'])->name('club.store');
