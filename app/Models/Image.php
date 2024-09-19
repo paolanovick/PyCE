@@ -19,5 +19,5 @@ class Image extends Model
     ];
 
     // Si tu tabla no usa los nombres por defecto
-    protected $table = 'images';
+    //protected $table = 'images';
 }
