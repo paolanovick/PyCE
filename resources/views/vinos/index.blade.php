@@ -8,7 +8,7 @@
         Ejemplo de imagen:
         @php
             $variable_de_la_base = 'public/storage';
-           
+
         @endphp
         <img src="public/storage/imagenes/{{ $variable_de_la_base }}" />
     </div>
