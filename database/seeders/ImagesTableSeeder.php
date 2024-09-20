@@ -11,29 +11,42 @@ class ImagesTableSeeder extends Seeder
     {
         DB::table('images')->insert([
             [
-                'path' => 'images/vino_tinto.jpg',
+                'path' => 'images/public/imagenes/Dominio Cabernet Sauvignon.jpg',
                 'type' => 'vino',
             ],
             [
-                'path' => 'images/vino_blanco.jpg',
+                'path' => 'images/public/imagenes/Dominio Chardonnay.jpg',
                 'type' => 'vino',
             ],
             [
-                'path' => 'images/asesoria1.jpg',
+                'path' => 'images/public/imagenes/Dominio Malbec.jpg',
+                'type' => 'vino',
+            ],
+            [
+                'path' => 'images/public/imagenes/asesoria/bottles-wine-with-barrel.jpg',
                 'type' => 'asesoría',
             ],
             [
-                'path' => 'images/asesoria2.jpg',
+                'path' => 'images/public/imagenes/asesoria/glass-wine-with-stunning-view-vineyard-sunset.jpg',
                 'type' => 'asesoría',
             ],
             [
-                'path' => 'images/blog_post1.jpg',
+                'path' => 'images/public/imagenes/Dominio Cabernet Sauvignon.jpg',
                 'type' => 'blog',
             ],
             [
-                'path' => 'images/blog_post2.jpg',
+                'path' => 'images/public/imagenes/Dominio Malbec.jpg',
                 'type' => 'blog',
             ],
+            [
+                'path' => 'images/public/imagenes/club/group-friends-eating-restaurant (1).jpg',
+                'type' => 'club',
+            ],
+            [
+                'path' => 'images/database/seeders/ImagesTableSeeder.php public/imagenes/club/group-friends-eating-restaurant.jpg',
+                'type' => 'club',
+            ],
+            
             // Puedes agregar más registros si lo deseas
         ]);
     }

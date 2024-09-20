@@ -11,24 +11,25 @@ class AsesoriasTableSeeder extends Seeder
     {
         DB::table('asesorias')->insert([
             [
-                'titulo' => 'Estrategias de Marketing Digital',
-                'resumen' => 'Aprende las mejores estrategias para llevar tu negocio al siguiente nivel en el mundo digital.',
-                'contenido' => 'En esta asesoría, exploramos diversas estrategias de marketing digital, desde la optimización en motores de búsqueda (SEO) hasta el marketing en redes sociales. Te proporcionamos herramientas y técnicas para mejorar la presencia en línea de tu empresa y atraer a más clientes.',
-                'imagen' => 'images/marketing_digital.jpg',
+                'titulo' => 'Cata de Vinos',
+                'resumen' => 'Descubre el mundo del vino a través de catas guiadas con expertos.',
+                'contenido' => 'En esta asesoría, te ofrecemos la oportunidad de participar en catas de vinos donde aprenderás a identificar aromas, sabores y características de diferentes varietales. Nuestros expertos te guiarán en la degustación, brindándote conocimientos sobre la historia y la producción del vino.',
+                'imagen' => 'images/public/imagenes/asesoria/cata-de-vinos.jpg',
             ],
             [
-                'titulo' => 'Gestión Financiera para Startups',
-                'resumen' => 'Descubre cómo gestionar eficazmente las finanzas de tu nueva empresa para asegurar su éxito.',
-                'contenido' => 'La gestión financiera es crucial para cualquier startup. Esta asesoría cubre aspectos como la elaboración de presupuestos, el manejo de flujos de efectivo y la planificación financiera a largo plazo. Aprenderás a tomar decisiones financieras informadas y a mantener tus finanzas en buen estado.',
-                'imagen' => 'images/gestion_financiera.jpg',
+                'titulo' => 'Asesoría en Bodegas',
+                'resumen' => 'Recibe asesoría personalizada para la gestión y optimización de tu bodega.',
+                'contenido' => 'Ofrecemos asesorías especializadas para viticultores y propietarios de bodegas. Aprenderás sobre la gestión eficiente de la producción, técnicas de vinificación y estrategias para mejorar la calidad de tus vinos. Nuestro equipo te apoyará en cada paso del proceso, desde la cosecha hasta la comercialización.',
+                'imagen' => 'images/public/imagenes/asesoria/bodega.jpg',
             ],
             [
-                'titulo' => 'Transformación Digital en Empresas',
-                'resumen' => 'Conoce cómo implementar la transformación digital en tu empresa para mejorar procesos y resultados.',
-                'contenido' => 'La transformación digital implica la integración de tecnología en todos los aspectos de un negocio. Esta asesoría te guiará a través del proceso de digitalización, desde la adopción de nuevas herramientas tecnológicas hasta la capacitación de tu equipo. Obtendrás una visión clara de cómo la tecnología puede impulsar tu negocio.',
-                'imagen' => 'images/transformacion_digital.jpg',
+                'titulo' => 'Estrategias de Maridaje',
+                'resumen' => 'Aprende a combinar vinos con diferentes platos para realzar su sabor.',
+                'contenido' => 'En esta asesoría, te enseñaremos las mejores prácticas de maridaje entre vinos y comidas. Descubrirás cómo seleccionar el vino adecuado para cada ocasión y cómo los sabores pueden complementarse para crear una experiencia gastronómica única.',
+                'imagen' => 'images/public/imagenes/asesoria/maridaje.jpg',
             ],
             // Puedes agregar más registros si lo deseas
         ]);
+
     }
 }

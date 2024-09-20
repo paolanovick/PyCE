@@ -5,8 +5,8 @@
     <div class="container mt-5">
         <h1>{{ $vino->nombre }}</h1>
         <div class="row">
-            <div class="col-md-6">
-                <img src="{{ url('path-to-your-image/' . $vino->imagen) }}" alt="{{ $vino->nombre }}" class="img-fluid">
+             <div class="col-md-6">
+                <img src="{{ asset($vino->imagen) }}" alt="{{ $vino->nombre }}" class="img-fluid">
             </div>
             <div class="col-md-6">
                 <p><strong>Descripción:</strong> {{ $vino->descripcion }}</p>

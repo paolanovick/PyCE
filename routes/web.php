@@ -28,7 +28,7 @@ Route::post('/suscripcion', [SuscripcionController::class, 'store'])->name('susc
 Route::get('/asesoria', [AsesoriaController::class, 'index'])->name('asesoria.index');
 Route::get('/asesoria/{id}', [AsesoriaController::class, 'show'])->name('asesorias.show');
 Route::get('/asesorias/{id}/request', [AsesoriaController::class, 'request'])->name('asesorias.request');
-
+Route::post('/asesorias/store', [AsesoriaController::class, 'store'])->name('asesoria.store');
 // Rutas de Vinos
 Route::get('/vinos', [HomeController::class, 'vinos'])->name('vinos');
 Route::get('/vinos/{id}', [VinoController::class, 'show'])->name('vinos.show');

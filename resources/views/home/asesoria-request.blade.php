@@ -4,8 +4,7 @@
     <!-- Aquí puedes agregar el formulario de inscripción -->
     <form action="{{ route('asesoria.store') }}" method="POST">
         @csrf
-        <input type="hidden" name="asesoria_id" value="{{ $asesoria->id }}">
-        <div class="form-group">
+        <input type="hidden" name="asesoria_id" value="{{ $asesoria->id }}"> <div class="form-group">
             <label for="titulo">Título:</label>
             <input type="text" id="titulo" name="titulo" class="form-control" required>
         </div>
@@ -18,6 +17,5 @@
             <textarea id="contenido" name="contenido" class="form-control" required></textarea>
         </div>
        
-        <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
-    </form>
+       <button type="submit" class="btn btn-primary">Enviar Solicitud</button>  </form>
 </x-layout>

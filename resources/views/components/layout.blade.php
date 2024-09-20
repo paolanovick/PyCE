@@ -5,9 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title ?? 'Pagina Principal' }}</title>
-   <link rel="stylesheet" href="{{asset("css/css.css")}}">
+    <!-- Primero carga Bootstrap -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" >
+    <!-- Luego tu archivo CSS personalizado -->
+    <link rel="stylesheet" href="{{ asset('css/css.css') }}">
 </head>
+
 
 
 <body>
@@ -38,8 +41,9 @@
         {{ $slot }}
     </main>
 
-    <footer class="bg-light py-3 text-center">
-        <p class="mb-0">Copyright &copy; Da Vinci 2024</p>
-    </footer>
+  <footer>
+    <p class="mb-0">Copyright &copy; Da Vinci 2024</p>
+</footer>
+
 
 </body>

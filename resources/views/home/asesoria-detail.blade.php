@@ -6,4 +6,7 @@
 
     <!-- Botón para solicitar la asesoría -->
     <a href="{{ route('asesorias.request', $asesoria->id) }}" class="btn btn-primary">Solicitar Asesoría</a>
+
+
+
 </x-layout>

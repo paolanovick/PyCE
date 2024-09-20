@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
         // Obtener la lista de vinos
         $vinos = Vino::all(); // O cualquier lógica que uses para obtener los vinos
-
+        //dd($vinos);
         return view('vinos.index', ['vinos' => $vinos]);
     }
 
@@ -79,7 +79,7 @@ class HomeController extends Controller
             // Otros campos
         ]);
 
-        
+
 
         return redirect()->back()->with('success', 'Ya está suscrito al club de vinos.');
     }

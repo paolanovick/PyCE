@@ -9,7 +9,7 @@ class Image extends Model
 {
     use HasFactory;
 
-    protected $table = '';
+
 
     // Si los nombres de las columnas en la base de datos son diferentes a los nombres convencionales, configúralo aquí
     protected $fillable = [
