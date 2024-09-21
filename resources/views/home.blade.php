@@ -2,11 +2,10 @@
     <x-slot:title>Home</x-slot:title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/css.css">
+    
     <div >
-        <h1>Bienvenido a Nuestra Tienda de Vinos</h1>
-
-
+       
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -17,22 +16,22 @@
                 <div class="carousel-item active">
                     <img src="{{asset('imagenes/banner1.jpg')}}" class="d-block w-100" alt="dos personas haciendo brindis con las copas de vino">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
+                        <h1 style="color:white">Bienvenido a nuestra tienda de vinos</h1>
+                        <p>Aquí encontraras vinos de excelente calidad</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('imagenes/banner2.jpg')}}" class="d-block w-100" alt="...">
+                    <img src="{{asset('imagenes/banner2.jpg')}}" class="d-block w-100" alt="plantacion de vinos">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
+                        <h2 style="color:white">Descubre los Mejores Vinos de Argentina en tu casa</h2>
+                        <p>Únete a nuestra exclusiva suscripción de vinos y recibe cada mes una selección de etiquetas premium, perfectas para disfrutar, aprender y compartir. ¡Vive la experiencia del vino como nunca antes!</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('imagenes/banner3.jpg')}}" class="d-block w-100" alt="...">
+                    <img src="{{asset('imagenes/banner3.jpg')}}" class="d-block w-100" alt="paisaje con plantas de parra">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
+                        <h2 style="color:white">Los Mejores Vinos a tu Alcance</h2>
+                        <p>Explora nuestra selección de vinos premium, cuidadosamente elegidos.</p>
                     </div>
                 </div>
             </div>
@@ -70,6 +69,6 @@
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </x-layout>
