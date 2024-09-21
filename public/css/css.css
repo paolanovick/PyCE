@@ -59,6 +59,11 @@ section h2 {
     text-transform: uppercase;
     margin-bottom: 20px;
 }
+section img {
+    max-width: 200px; /* Limita el ancho máximo */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
 
 .text-container {
     margin-right: 20px; /* Espacio entre el texto y la imagen */
