@@ -7,6 +7,7 @@
 
     <section>
         <h2>Últimos Artículos del Blog</h2>
+        <h1>un cambio de prueba</h1>
 
         <!-- Primer artículo -->
         <article class="d-flex">
