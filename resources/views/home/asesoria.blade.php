@@ -16,19 +16,19 @@
 </div>
 
        <div class="row">
-            <p>Esperamos su contacto </p>
+           
             @forelse($asesorias as $asesoria)
                 <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
+                  
+                        
                             <h5 class="card-title">{{ $asesoria->titulo }}</h5>
                             <p class="card-text">{{ $asesoria->descripcion }}</p>
                            
                             <!-- Botón de Más Información -->
                             <a href="{{ route('asesorias.show', $asesoria->id) }}" class="btn btn-primary">Más Información</a>
                            
-                        </div>
-                    </div>
+                       
+                   
                 </div>
             @empty
                 <p class="no-asesorias">No hay asesorías disponibles.</p>
