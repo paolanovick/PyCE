@@ -25,6 +25,9 @@ class Vino extends Model
         'descripcion',
         'precio',
         'imagen',
+        'ficha_tecnica', 
+        'notas_de_cata', 
+        'sugerencias_de_acompaniamiento', 
     ];
 
     // Define the attributes that are hidden from arrays

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vino;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class VinoController extends Controller
@@ -18,6 +19,8 @@ class VinoController extends Controller
     public function show($id)
     {
         $vino = Vino::findOrFail($id);
-        return view('vinos.show', compact('vino'));
+        $blogs = Blog::all(); // Obtiene todos los blogs
+
+        return view('vinos.show', compact('vino', 'blogs')); // Pasa el vino y los blogs a la vista
     }
 }
