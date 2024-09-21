@@ -3,6 +3,7 @@
 
     <div class="banner">
         <h1>Bienvenido a Nuestra Tienda de Vinos</h1>
+        <p>hola</p>
     </div>
 
     <section>
