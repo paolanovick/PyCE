@@ -1,6 +1,6 @@
 /* Ajustes generales */
 body {
-    background-color: #fbfbfc;
+    background-color: #fcfbfb;
     font-family: 'Arial', sans-serif;
 }
 
@@ -135,6 +135,11 @@ section h2 {
     border-top-right-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra para la imagen */
  overflow: visible; /* Asegura que la imagen pueda sobresalir */
+}
+
+.card img {
+    width: 100%; /* O el tamaño deseado */
+    height: auto; /* Mantiene la proporción */
 }
 
 

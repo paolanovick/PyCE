@@ -58,7 +58,13 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
-
+        'blog' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/blog'),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -88,6 +94,7 @@ return [
         public_path('storage') => storage_path('app/public'),
         public_path(path: 'imagenes') => storage_path('app/public/imagenes'),
         public_path(path: 'asesorias') => storage_path('app/public/asesorias'),
+        public_path(path: 'blog') => storage_path('app/public/blog'),
     ],
 
 ];
