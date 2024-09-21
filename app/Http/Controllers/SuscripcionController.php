@@ -2,23 +2,62 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Club;
 use Illuminate\Http\Request;
+use App\Models\Club; // Si usas Clubes de una base de datos
 use App\Models\Suscripcion;
-
 
 class SuscripcionController extends Controller
 {
+    // Método para mostrar la página de suscripción con las dos opciones
     public function index()
     {
-        // Obtener todos los clubes de vinos
-        $clubes = Club::all(); // Asegúrate de que el modelo Club esté definido y configurado correctamente
+        // Si no necesitas usar la base de datos, puedes usar este arreglo simulado
+        $clubes = [
+            (object)[
+                'id' => 1,
+                'nombre' => 'Suscripción Clásica',
+                'descripcion' => 'Acceso a vinos clásicos, ideal para los que disfrutan de una selección tradicional.',
+                'precio_mensual' => 1500,
+            ],
+            (object)[
+                'id' => 2,
+                'nombre' => 'Suscripción Premium',
+                'descripcion' => 'Disfruta de vinos premium seleccionados de las mejores bodegas.',
+                'precio_mensual' => 3000,
+            ]
+        ];
 
-        // Pasar la variable $clubes a la vista
         return view('home.suscripcion', ['clubes' => $clubes]);
     }
 
-    // app/Http/Controllers/SuscripcionController.php
+    // Método para mostrar los detalles de la suscripción
+    public function show($id)
+    {
+        // Simulación de las suscripciones para mostrar detalles
+        $suscripciones = [
+            1 => (object)[
+                'id' => 1,
+                'nombre' => 'Suscripción Clásica',
+                'descripcion' => 'Acceso a vinos clásicos.',
+                'precio' => 1500
+            ],
+            2 => (object)[
+                'id' => 2,
+                'nombre' => 'Suscripción Premium',
+                'descripcion' => 'Acceso a vinos Premium seleccionados.',
+                'precio' => 3000
+            ]
+        ];
+
+        $suscripcion = $suscripciones[$id] ?? null;
+
+        if (!$suscripcion) {
+            return redirect()->route('suscripcion.index')->with('error', 'Suscripción no encontrada.');
+        }
+
+        return view('home.suscripcion-detail', ['suscripcion' => $suscripcion]);
+    }
+
     public function store(Request $request)
     {
         $request->validate([

@@ -18,7 +18,6 @@ Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
 
 // Página de Nosotros
 Route::get('/nosotros', [NosotrosController::class, 'nosotros'])->name('nosotros');
-
 // Rutas de Suscripción
 Route::get('/suscripcion', [SuscripcionController::class, 'index'])->name('suscripcion.index');
 Route::get('/suscripcion/{id}', [SuscripcionController::class, 'show'])->name('suscripcion.show');
