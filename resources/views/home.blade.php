@@ -13,7 +13,7 @@
         <article class="d-flex">
             <div class="text-container" style="flex: 1;">
                 <h3>Cómo Elegir el Vino Perfecto</h3>
-                <p>En este artículo, exploramos los factores clave para elegir el vino ideal para cualquier ocasión. Desde la selección de la variedad de uva hasta el maridaje adecuado, descubrirás todos los secretos para convertirte en un experto en vinos.</p>
+                <p>En este artículo, exploramos los faGIT MERGE PAOLActores clave para elegir el vino ideal para cualquier ocasión. Desde la selección de la variedad de uva hasta el maridaje adecuado, descubrirás todos los secretos para convertirte en un experto en vinos.</p>
                 <p>Aprende sobre la temperatura de servicio, las copas adecuadas y cómo leer las etiquetas para hacer la mejor elección en cada situación. ¡No dejes que el momento te sorprenda sin el vino perfecto!</p>
             </div>
             <img class="botellas img-fluid" src="{{ asset('imagenes/chardonnay.jpg') }}" alt="Cómo Elegir el Vino Perfecto" >
