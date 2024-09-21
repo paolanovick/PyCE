@@ -10,7 +10,7 @@ class VinoController extends Controller
     public function index()
     {
         $vinos = Vino::all();
-        dd($vinos);
+        
         //retorna 6 registros
         return view('vinos.index', compact('vinos'));
     }

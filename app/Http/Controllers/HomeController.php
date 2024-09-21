@@ -81,17 +81,14 @@ class HomeController extends Controller
 
 
 
+
         return redirect()->back()->with('success', 'Ya está suscrito al club de vinos.');
     }
 
     public function index()
     {
-        // Obtener los últimos artículos del blog
-        $blogArticles = [
-            (object)['titulo' => 'Cómo Elegir el Vino Perfecto', 'resumen' => 'En este artículo, exploramos los factores clave para elegir el vino ideal para cualquier ocasión...'],
-            (object)['titulo' => 'Los Mejores Vinos de la Temporada', 'resumen' => 'Descubre cuáles son los vinos más recomendados para esta temporada...'],
-        ];
-
-        return view('home', ['blogArticles' => $blogArticles]);
+        $blogs = Blog::latest()->take(3)->get();
+        //dd($blogs);
+        return view('home', compact('blogs')); // Pasar la variable a la vista
     }
 }
