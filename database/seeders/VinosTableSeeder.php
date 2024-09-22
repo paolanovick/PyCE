@@ -15,7 +15,7 @@ class VinosTableSeeder extends Seeder
                 'nombre' => 'Dominio Gran Cabernet Sauvignon',
                 'descripcion' => 'Un vino tinto robusto y lleno de carácter.',
                 'precio' => 20.00,
-                'imagen' => 'imagenes/Dominio Cabernet Sauvignon.jpg',
+                'imagen' => 'public/storage/imagenes/Dominio Cabernet Sauvignon.jpg',
                 'ficha_tecnica' => implode('; ', [
                     'Año cosecha 2018',
                     'Variedad 100% Cabernet Sauvignon de Gualtallary',

@@ -14,7 +14,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Rutas de Blog
 Route::get('/blogs', [BlogController::class, 'index'])->name('blog.index');
-Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');
 
 // Página de Nosotros
 Route::get('/nosotros', [NosotrosController::class, 'nosotros'])->name('nosotros');
@@ -42,6 +42,8 @@ Route::post('/asesorias/store', [AsesoriaController::class, 'store'])->name('ase
 // Rutas de Vinos
 Route::get('/vinos', [HomeController::class, 'vinos'])->name('vinos.index');
 Route::get('/vinos/{id}', [VinoController::class, 'show'])->name('vinos.show');
+Route::post('/vinos/{id}/comprar', [VinoController::class, 'comprar'])->name('vinos.comprar');
+
 
 // Rutas de Club
 Route::post('/club', [ClubController::class, 'store'])->name('club.store');
