@@ -16,10 +16,13 @@ return new class extends Migration
         Schema::create('vinos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->text('descripcion')->nullable();
+            $table->text('descripcion');
             $table->decimal('precio', 8, 2);
             $table->string('imagen')->nullable();
-            $table->timestamps();
+            $table->text('ficha_tecnica')->nullable(); // Subitems: cosecha, variedad, crianza, potencial de guarda
+            $table->text('notas_de_cata')->nullable();
+            $table->text('sugerencias_de_acompaniamiento')->nullable();
+            $table->timestamps(); // Campos created_at y updated_at
         });
     }
 

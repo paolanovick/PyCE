@@ -15,6 +15,7 @@ class Asesoria extends Model
         'resumen',
         'contenido',
         'imagen',
+        'email', 
     ];
 
     // Si necesitas configurar los timestamps, puedes habilitarlos o deshabilitarlos aquí

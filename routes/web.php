@@ -14,7 +14,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Rutas de Blog
 Route::get('/blogs', [BlogController::class, 'index'])->name('blog.index');
-Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');
 
 // Página de Nosotros
 Route::get('/nosotros', [NosotrosController::class, 'nosotros'])->name('nosotros');
@@ -24,13 +24,26 @@ Route::get('/suscripcion/{id}', [SuscripcionController::class, 'show'])->name('s
 Route::post('/suscripcion', [SuscripcionController::class, 'store'])->name('suscripcion.store');
 
 
+// Mostrar todas las asesorías
 Route::get('/asesoria', [AsesoriaController::class, 'index'])->name('asesoria.index');
+
+// Mostrar una asesoría específica
 Route::get('/asesoria/{id}', [AsesoriaController::class, 'show'])->name('asesorias.show');
+
+// Mostrar el formulario de solicitud de asesoría
 Route::get('/asesorias/{id}/request', [AsesoriaController::class, 'request'])->name('asesorias.request');
+
+// Almacenar la solicitud de asesoría
 Route::post('/asesorias/store', [AsesoriaController::class, 'store'])->name('asesoria.store');
+
+
+
+
 // Rutas de Vinos
-Route::get('/vinos', [HomeController::class, 'vinos'])->name('vinos');
+Route::get('/vinos', [HomeController::class, 'vinos'])->name('vinos.index');
 Route::get('/vinos/{id}', [VinoController::class, 'show'])->name('vinos.show');
+Route::post('/vinos/{id}/comprar', [VinoController::class, 'comprar'])->name('vinos.comprar');
+
 
 // Rutas de Club
 Route::post('/club', [ClubController::class, 'store'])->name('club.store');

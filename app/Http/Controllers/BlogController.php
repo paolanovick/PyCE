@@ -27,6 +27,8 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog = Blog::findOrFail($id);
-        return view('blog.show', compact('blog'));
+
+        return view('blogs.show', compact('blog')); // Vista dentro de 'resources/views/blogs/show.blade.php'
     }
+
 }

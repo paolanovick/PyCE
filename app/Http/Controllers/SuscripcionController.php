@@ -63,13 +63,15 @@ class SuscripcionController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'email' => 'required|email|unique:suscripciones,email',
+            'plan' => 'required|string',
         ]);
 
         Suscripcion::create([
             'nombre' => $request->input('nombre'),
             'email' => $request->input('email'),
+            'plan' => $request->input('plan'), // Agregar el plan
         ]);
 
-        return redirect()->back()->with('success', '¡Te has suscrito exitosamente!');
+        return redirect()->back()->with('success', '¡Te has suscripto exitosamente!');
     }
 }

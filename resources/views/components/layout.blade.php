@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title ?? 'Pagina Principal' }}</title>
     <!-- Primero carga Bootstrap -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" >
-   
-   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Luego tu archivo CSS personalizado -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/css.css') }}">
 </head>
 
@@ -35,7 +33,8 @@
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="/">Home</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="/nosotros">Nosotros</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="/vinos">Vinos</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="/suscripcion">Suscripción</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="/suscripcion">Suscripción</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="/asesoria">Asesoría</a></li>
                 </ul>
             </div>
@@ -58,5 +57,6 @@
     </div>
 </footer>
 
-
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

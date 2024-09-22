@@ -29,6 +29,8 @@ class AsesoriaController extends Controller
             'resumen' => 'required|string',
             'contenido' => 'required|string',
             'imagen' => 'nullable|string',
+            'email' => 'required|email',
+           
         ]);
 
         Asesoria::create([
@@ -36,9 +38,13 @@ class AsesoriaController extends Controller
             'resumen' => $request->input('resumen'),
             'contenido' => $request->input('contenido'),
             'imagen' => $validated['imagen'] ?? null,
-        ]);
+            'email' => $request->input('email'),
 
-        return redirect()->back()->with('success', 'Asesoría solicitada exitosamente.');
+
+        ]);
+        return redirect()->back()->with('success', 'Ya estás inscrito para recibir asesorías.');
+
+      
     }
 
     public function request($id)
