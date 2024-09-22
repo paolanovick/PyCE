@@ -5,7 +5,7 @@ body {
 }
 
 h1, h2 {
-    color: #0eec0e;
+    color: #09ac17;
 }
 
 h1 {
@@ -29,7 +29,7 @@ h2 {
 article {
     margin-bottom: 30px;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #c90d0d;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para separar visualmente los artículos */
     transition: box-shadow 0.3s ease;
