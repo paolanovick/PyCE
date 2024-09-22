@@ -1,7 +1,8 @@
 /* Ajustes generales */
 body {
-    background-color: #fcfbfb;
+   /* background-color: #fcfbfb;*/
     font-family: 'Arial', sans-serif;
+    background-color: red;
 }
 
 h1, h2 {
