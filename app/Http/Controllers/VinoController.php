@@ -15,7 +15,13 @@ class VinoController extends Controller
         //retorna 6 registros
         return view('vinos.index', compact('vinos'));
     }
-
+    public function vinos()
+    {
+        // Obtener la lista de vinos
+        $vinos = Vino::all(); // O cualquier lógica que uses para obtener los vinos
+        //dd($vinos);
+        return view('vinos.index', ['vinos' => $vinos]);
+    }
     public function show($id)
     {
         $vino = Vino::findOrFail($id);

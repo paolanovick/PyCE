@@ -21,13 +21,7 @@ class HomeController extends Controller
         $blog = Blog::findOrFail($id);
         return view('blog.show', compact('blog'));
     }
-    public function vinos()
-    {
-        // Obtener la lista de vinos
-        $vinos = Vino::all(); // O cualquier lógica que uses para obtener los vinos
-        //dd($vinos);
-        return view('vinos.index', ['vinos' => $vinos]);
-    }
+    
 
 
     public function nosotros()

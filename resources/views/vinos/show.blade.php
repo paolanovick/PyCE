@@ -8,10 +8,10 @@
             </div>
         @endif
 
-        <h1>{{ $vino->nombre }}</h1>
+        <h1>{{ $vino->nombre }}paola</h1>
         <div class="row">
             <div class="col-md-6">
-                <img src="{{ asset('storage/' . $vino->imagen) }}" alt="{{ $vino->nombre }}" class="img-fluid">
+                <img src="{{ Storage::disk('imagenes')->url($vino->imagen) }}" alt="{{ $vino->nombre }}" class="img-fluid">
             </div>
             <div class="col-md-6">
                 <p><strong>Descripción:</strong> {{ $vino->descripcion }}</p>

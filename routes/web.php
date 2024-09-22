@@ -40,7 +40,7 @@ Route::post('/asesorias/store', [AsesoriaController::class, 'store'])->name('ase
 
 
 // Rutas de Vinos
-Route::get('/vinos', [HomeController::class, 'vinos'])->name('vinos.index');
+Route::get('/vinos', [VinoController::class, 'vinos'])->name('vinos.index');
 Route::get('/vinos/{id}', [VinoController::class, 'show'])->name('vinos.show');
 Route::post('/vinos/{id}/comprar', [VinoController::class, 'comprar'])->name('vinos.comprar');
 

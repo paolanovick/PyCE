@@ -23,5 +23,8 @@ class DatabaseSeeder extends Seeder
         /*$this->call([AsesoriasTableSeeder::class, BlogsTableSeeder::class, ImagesTableSeeder::class, SuscripcionesTableSeeder::class, VinosTableSeeder::class]);
 */
         $this->call([BlogsTableSeeder::class]);
+        $this->call([VinosTableSeeder::class]);
+        $this->call([AsesoriasTableSeeder::class]);
+        $this->call([SuscripcionesTableSeeder::class]);
     }
 }
