@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoriaAsesoria;
 use Illuminate\Http\Request;
 use App\Models\Asesoria;
 
@@ -11,7 +12,7 @@ class AsesoriaController extends Controller
     {
 
         // Obtén todas las asesorías de la base de datos
-        $asesorias = Asesoria::all();
+        $CategoriaAsesorias = CategoriaAsesoria::all();
         //dd($asesorias); // Muestra el contenido de la variable $asesorias
         // Pasa las asesorías a la vista
         return view('home.asesoria', compact('asesorias'));

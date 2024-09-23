@@ -1,0 +1,269 @@
+/* Ajustes generales */
+body {
+   /* background-color: #fcfbfb;*/
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(245, 239, 243);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+h1 {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: 15px;
+}
+
+/* Estilo para las botellas */
+.botellas {
+    max-width: 200px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: 180px; /* Mantiene la proporción de la imagen */
+}
+
+/* Estilo para los artículos del blog */
+article {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para separar visualmente los artículos */
+    transition: box-shadow 0.3s ease;
+}
+
+article h3 {
+    color: #495057;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+article p {
+    color: #6c757d;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Estilo para la sección del blog */
+section {
+    margin-top: 40px;
+}
+
+section h2 {
+    color: #343a40;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+section img {
+    max-width: 200px; /* Limita el ancho máximo */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+
+.text-container {
+    margin-right: 20px; /* Espacio entre el texto y la imagen */
+}
+
+/* Estilo para la sección de asesorías */
+.asesorias-section {
+    margin-top: 40px;
+}
+
+.asesorias-section h1 {
+    font-size: 2rem;
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+.asesorias-section div {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el texto de asesorías */
+.asesorias-section p {
+    color: #6c757d; /* Color de texto */
+    font-size: 1rem; /* Tamaño de fuente */
+    line-height: 1.6; /* Altura de línea */
+    margin-bottom: 15px; /* Espaciado entre párrafos */
+}
+
+.asesorias-section strong {
+    color: #343a40; /* Color del texto en negrita */
+    font-weight: bold; /* Negrita */
+}
+
+/* Estilos para las tarjetas de vinos */
+.card {
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto de transición */
+    overflow: hidden; /* Asegura que los bordes redondeados no se superpongan con las imágenes */
+    background-color: #fff;
+    margin-bottom: 30px;
+    position: relative; /* Asegúrate de que la tarjeta sea un contenedor posicionado */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Eleva la tarjeta al hacer hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+}
+
+.card-img-top {
+    position: relative;
+    /* Ajusta este valor si es necesario */
+    left: 0; /* Alinea a la izquierda */
+    width: 100%; /* Ocupa todo el ancho de la tarjeta */
+    max-height: 150px; /* Ajusta la altura según sea necesario */
+    object-fit: contain; /* Asegura que la imagen no se corte */
+    border-top-left-radius: 10px; /* Bordes redondeados */
+    border-top-right-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra para la imagen */
+}
+.img-vino {
+    position: relative;
+    top: -70px; /* Ajusta cuánto sobresale la imagen */
+    left: 50%; /* Centra la imagen horizontalmente */
+    transform: translateX(-50%); /* Corrige el centrado */
+    width: 80%; /* Ajusta el ancho de la imagen */
+    height: auto; /* Ajusta la altura según sea necesario */
+    object-fit: contain; /* Asegura que la imagen no se corte */
+    border-top-left-radius: 10px; /* Bordes redondeados */
+    border-top-right-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra para la imagen */
+ overflow: visible; /* Asegura que la imagen pueda sobresalir */
+}
+
+.card img {
+    width: 100%; /* O el tamaño deseado */
+    height: auto; /* Mantiene la proporción */
+}
+
+
+
+.card-title {
+    font-size: 1.5rem;
+    color: #343a40;
+}
+
+.card-text {
+    color: #6c757d;
+}
+
+.card-footer {
+    background-color: #ffffff;
+}
+
+.card-footer .btn {
+    width: 100%;
+}
+
+/* Estilo para mensajes de no disponibilidad */
+.no-asesorias {
+    color: #6c757d;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Estilo para el footer */
+footer {
+    background-color: #2c3136; /* Fondo negro */
+    color: #ffffff; /* Letras blancas */
+    padding: 15px 0; /* Espaciado vertical */
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Estilo para la sección de artículos */
+article img {
+    border-bottom: 5px solid #6c757d;
+}
+
+/* Estilos para las tarjetas de los artículos del blog */
+article:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más grande al hacer hover */
+}
+
+/* Estilo para el banner del título principal */
+.banner {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    padding: 90px 20px;
+    text-align: center;
+    color: #ffffff; /* Letras blancas para mayor contraste */
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+     margin: 20px 0; /* Margen superior e inferior para despegarlo */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* Sombra más pronunciada */
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3); /* Capa oscura para mejorar la legibilidad */
+    z-index: 1;
+}
+
+.banner h1 {
+    position: relative;
+    z-index: 2; /* Mantiene el título encima de la capa de opacidad */
+    margin: 0;
+    font-size: 2.5rem; /* Tamaño del título */
+}
+
+/* Estilo para el navbar */
+.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra debajo de la barra de navegación */
+    background-color: #ffffff; 
+    position: relative;
+    z-index: 1000; /* Asegura que se superponga al contenido */
+}
+
+.navbar-nav {
+    display: flex; 
+   
+}
+
+.container-fluid {
+    background-color: #2c3136; /* Color de fondo elegante */
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Sombra en los botones del navbar */
+.navbar .nav-link {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra en cada botón */
+    padding: 0.5rem 1rem; /* Ajuste de tamaño de los botones */
+    margin-right: 10px; /* Separación entre botones */
+    border-radius: 5px; /* Bordes redondeados para un mejor efecto visual */
+    transition: box-shadow 0.3s ease; /* Transición suave en hover */
+    color: #ffffff;
+}
+
+/* Efecto hover en los botones */
+.navbar .nav-link:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el cursor */
+    background-color: #b2936d; /* Cambia el color de fondo en hover */
+}

@@ -17,11 +17,6 @@ class VinosTableSeeder extends Seeder
                 'precio' => 20.00,
                 'imagen' => 'imagenes/Dominio Gran Cabernet Sauvignon.jpg',
                 'ficha_tecnica' => '',
-                'Cosecha' => '',
-                'Variedad' => '',
-                'Crianza' => '',
-                'Potencial de guarda' => '',
-
                 'notas_de_cata' => '',
                 'sugerencias_de_acompaniamiento' => ' ',
             ],

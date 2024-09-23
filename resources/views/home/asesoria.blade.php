@@ -15,17 +15,17 @@
     <p>Garantía de confidencialidad y objetividad en el proceso de análisis y en los resultados.</p>
 </div>
 
-       <div class="row">
+       <div cla
            
-            @forelse($asesorias as $asesoria)
+            @forelse($CategoriaAsesorias as $CategoriaAsesoria)
                 <div class="col-md-4">
                   
                         
-                            <h5 class="card-title">{{ $asesoria->titulo }}</h5>
-                            <p class="card-text">{{ $asesoria->descripcion }}</p>
+                            <h5 class="card-title">{{ $CategoriaAsesoria->nombre }}</h5>
+                            <p class="card-text">{{ $CategoriaAsesoria->descripcion }}</p>
                            
                             <!-- Botón de Más Información -->
-                            <a href="{{ route('asesorias.show', $asesoria->id) }}" class="btn btn-primary">Más Información</a>
+                            <a href="{{ route('asesorias.categoria', $CategoriaAsesoria->id) }}" class="btn btn-primary">Más Información</a>
                            
                        
                    

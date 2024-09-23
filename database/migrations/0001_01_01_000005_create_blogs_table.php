@@ -13,6 +13,7 @@ class CreateBlogsTable extends Migration
             $table->string('titulo');
             $table->text('contenido');
             $table->string('imagen')->nullable(); // Ruta o nombre de imagen
+            $table->text('resumen')->nullable(); // Agregar campo resumen
             $table->timestamps();
         });
     }
