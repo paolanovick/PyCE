@@ -4,81 +4,73 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+ <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/css.css') }}">
 
-    <title>aaaaa</title>
+    <title>Admin</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
+<body class="body_admin">
+    <div>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <!-- Logo y nombre de la marca -->
+        <a class="navbar-brand" href="{{ route('dashboard') }}">
+            <img src="https://i.pinimg.com/564x/03/22/4b/03224b0e0a3cc6261073b4cc2710ee99.jpg" alt="Logo"
+                style="height: 60px; border-radius:30px;">
+            <span style="font-size: 24px; font-weight: bold; color: whitesmoke; margin-left: 10px;">Enófilo</span>
+        </a>
 
-<body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <!-- Botón Hamburguesa para móviles -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="background-color: white;"></span>
+        </button>
 
-        <nav class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
-            <!-- Primary Navigation Menu -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between h-16">
-                    <div class="flex">
-                        <!-- Logo -->
-                        <div class="shrink-0 flex items-center">
-                            <a href="{{ route('dashboard') }}">
-                                {{ __('Dashboard') }}</a>
-                        </div>
+        <!-- Enlaces de navegación -->
+        <div class="navbar-collapse collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <!-- Enlace al dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
+                </li>
 
-                        <!-- Navigation Links -->
-                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <!-- Enlace a la lista de vinos -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('vinos.index') }}">{{ __('Vinos') }}</a>
+                </li>
 
-                            <a href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
-                        </div>
-                    </div>
-
-                    <!-- Settings Dropdown -->
-                    <div class="hidden sm:flex sm:items-center sm:ms-6">
-
-                        <a href="{{ route('profile.index') }}">PERFIL</a>
-
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <a href="#" onclick="event.preventDefault(); this.closest('form').submit();"
-                                class="dropdown-item">
-                                {{ __('Log Out') }}
-                            </a>
-                        </form>
-
-                    </div>
-
-                    <!-- Hamburger -->
-                    <div class="-me-2 flex items-center sm:hidden">
-                        <button @click="open = ! open"
-                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
-
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-        </nav>
-
-        <!-- Page Heading -->
-        @isset($header)
-            <header class="bg-white dark:bg-gray-800 shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-        @endisset
-
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+                <!-- Dropdown de perfil y logout -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        PERFIL
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ route('profile.index') }}">Perfil</a></li>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a href="#" class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </a>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
+</nav>
+       <main class="container p-4">
+        {{ $slot }}
+    </main>
+    </div>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

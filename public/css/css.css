@@ -267,3 +267,39 @@ article:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el cursor */
     background-color: #b2936d; /* Cambia el color de fondo en hover */
 }
+/* Color del título */
+.navbar-brand {
+    color: #ffffff;
+    font-weight: bold; /* Negrita */
+    text-transform: uppercase; /* Letras mayúsculas */
+}
+
+/* Enlaces de texto */
+.text-white {
+    color: #ffffff !important; /* Asegura que el texto sea blanco */
+}
+
+/* Estilos para la imagen del carrito */
+.cart-icon {
+    position: relative;
+    width: 25px; /* Ajusta el tamaño del ícono del carrito */
+    height: auto; /* Mantiene la proporción */
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px; /* Ajusta la posición del badge */
+    right: -5px; /* Ajusta la posición del badge */
+    background-color: red; /* Color del badge */
+    color: white; /* Color del texto del badge */
+    border-radius: 50%; /* Hacerlo circular */
+    padding: 2px 6px; /* Espaciado interno del badge */
+    font-size: 0.8rem; /* Tamaño de fuente del badge */
+}
+
+/* Estilos para el ícono de usuario */
+.user-icon {
+    position: relative;
+    width: 25px; /* Ajusta el tamaño del ícono del usuario */
+    height: auto; /* Mantiene la proporción */
+}

@@ -1,4 +1,4 @@
-<x-app>
+<x-layout>
     <x-slot:title>{{ $vino->nombre }}</x-slot:title>
 
     <div class="container mt-5">
@@ -35,4 +35,4 @@
             </div>
         </div>
     </div>
-</x-app>
+</x-layout>

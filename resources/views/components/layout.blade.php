@@ -32,7 +32,7 @@
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="/">Home</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="/nosotros">Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="/vinos">Vinos</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="/listavinos">Vinos</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="/suscripcion">Suscripción</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="/categoriaasesoria">Asesoría</a>

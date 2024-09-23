@@ -21,7 +21,7 @@ class HomeController extends Controller
         $blog = Blog::findOrFail($id);
         return view('blog.show', compact('blog'));
     }
-    
+
 
 
     public function nosotros()
@@ -84,5 +84,27 @@ class HomeController extends Controller
         $blogs = Blog::latest()->take(3)->get();
         //dd($blogs);
         return view('home', compact('blogs')); // Pasar la variable a la vista
+    }
+
+    public function listavinos()
+    {
+        $vinos = Vino::all(); // O cualquier lógica que uses para obtener los vinos
+        //dd("");
+        //dd($vinos);
+        return view('home.vinos', ['vinos' => $vinos]);
+    }
+
+    public function detallevino($id)
+    {
+        $vino = Vino::findOrFail($id);
+        $blogs = Blog::all(); // Obtiene todos los blogs
+
+        return view('home.detallevino', compact('vino', 'blogs')); // Pasa el vino y los blogs a la vista
+    }
+
+    public function comprar(Request $request, $id)
+    {
+        session()->flash('success', 'Su compra se realizó con éxito.');
+        return redirect()->route('vinos.show', $id);
     }
 }

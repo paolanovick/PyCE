@@ -2,14 +2,6 @@
 
 use App\Http\Controllers\AsesoriaController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\ConfirmablePasswordController;
-use App\Http\Controllers\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\Auth\EmailVerificationPromptController;
-use App\Http\Controllers\Auth\NewPasswordController;
-use App\Http\Controllers\Auth\PasswordController;
-use App\Http\Controllers\Auth\PasswordResetLinkController;
-use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoriaAsesoriaController;
 use App\Http\Controllers\ClubController;
@@ -35,6 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
+
+    Route::resource('vinos', VinoController::class)->names('vinos');
 });
 
 Route::middleware('guest')->group(function () {
@@ -72,9 +66,15 @@ Route::get('/categoriaasesoria', [CategoriaAsesoriaController::class, 'index'])-
 Route::get('/categoriaasesoria/{id}', [CategoriaAsesoriaController::class, 'show'])->name('categoriaasesorias.show');
 
 // Rutas de Vinos
-Route::get('/vinos', [VinoController::class, 'vinos'])->name('vinos.index');
-Route::get('/vinos/{id}', [VinoController::class, 'show'])->name('vinos.show');
-Route::post('/vinos/{id}/comprar', [VinoController::class, 'comprar'])->name('vinos.comprar');
+
+Route::get('/listavinos', [HomeController::class, 'listavinos'])->name('listavinos');
+Route::get('/homevino/{id}', [HomeController::class, 'detallevino'])->name('listavinos.show');
+
+Route::post('/vinos/{id}/comprar', [HomeController::class, 'comprar'])->name('vinos.comprar');
+//Route::get('/vinos/create', [VinoController::class, 'create'])->name('vinos.create');
+//Route::post('/vinos', [VinoController::class, 'store'])->name('vinos.store');
+
+
 
 // Rutas de Club
 Route::post('/club', [ClubController::class, 'store'])->name('club.store');
