@@ -40,7 +40,7 @@
                     <!-- Settings Dropdown -->
                     <div class="hidden sm:flex sm:items-center sm:ms-6">
 
-                        <a href="{{ route('profile.edit') }}">PERFIL</a>
+                        <a href="{{ route('profile.index') }}">PERFIL</a>
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
