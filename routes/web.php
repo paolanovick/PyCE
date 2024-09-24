@@ -29,20 +29,29 @@ Route::middleware('auth')->group(function () {
         ->name('logout');
 
     Route::resource('vinos', VinoController::class)->names('vinos');
+    Route::resource('blogs', BlogController::class)->names('blogs');
+    Route::resource('suscripciones', SuscripcionController::class);
+
+
 });
+
 
 Route::middleware('guest')->group(function () {
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 });
-
 // Rutas de Blog
-Route::get('/blogs', [BlogController::class, 'index'])->name('blog.index');
-Route::get('/blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');
+// Rutas de Blog
+Route::get('/publicacionesblogs', [HomeController::class, 'home'])->name('publicacionblog.index'); // Cambiado a 'home'
+Route::get('/publicaciones/{id}', [HomeController::class, 'show'])->name('publicaciones.show');
+
+
 
 // Página de Nosotros
 Route::get('/nosotros', [NosotrosController::class, 'nosotros'])->name('nosotros');
+
+
 // Rutas de Suscripción
 Route::get('/suscripcion', [SuscripcionController::class, 'index'])->name('suscripcion.index');
 Route::get('/suscripcion/{id}', [SuscripcionController::class, 'show'])->name('suscripcion.show');
@@ -51,16 +60,13 @@ Route::post('/suscripcion', [SuscripcionController::class, 'store'])->name('susc
 
 // Mostrar todas las asesorías
 Route::get('/asesoria', [AsesoriaController::class, 'index'])->name('asesoria.index');
-
-
 // Mostrar una asesoría específica
 Route::get('/asesoria/{id}', [AsesoriaController::class, 'show'])->name('asesorias.show');
-
 // Mostrar el formulario de solicitud de asesoría
 Route::get('/asesorias/{id}/request', [AsesoriaController::class, 'request'])->name('asesorias.request');
-
 // Almacenar la solicitud de asesoría
 Route::post('/asesorias/store', [AsesoriaController::class, 'store'])->name('asesoria.store');
+
 
 Route::get('/categoriaasesoria', [CategoriaAsesoriaController::class, 'index'])->name('categoriaasesoria.index');
 Route::get('/categoriaasesoria/{id}', [CategoriaAsesoriaController::class, 'show'])->name('categoriaasesorias.show');
@@ -79,4 +85,7 @@ Route::post('/vinos/{id}/comprar', [HomeController::class, 'comprar'])->name('vi
 // Rutas de Club
 Route::post('/club', [ClubController::class, 'store'])->name('club.store');
 
-Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
+// Rutas de Blog
+Route::get('/publicacionesblogs', [BlogController::class, 'index'])->name('publicacionblog.index');
+Route::get('/publicacionesblogs/{id}', [BlogController::class, 'show'])->name('publicacionblog.show');
+

@@ -14,12 +14,13 @@ class HomeController extends Controller
 {
     public function home()
     {
-        return view('home.home');
+        $blogs = Blog::latest()->take(30)->get(); // Obtiene los últimos 30 blogs
+        return view('home', compact('blogs'));
     }
     public function show($id)
     {
         $blog = Blog::findOrFail($id);
-        return view('blog.show', compact('blog'));
+        return view('publicacionblog.show', compact('blog'));
     }
 
 
@@ -83,7 +84,7 @@ class HomeController extends Controller
     {
         $blogs = Blog::latest()->take(3)->get();
         //dd($blogs);
-        return view('home', compact('blogs')); // Pasar la variable a la vista
+        return view('home', compact('blogs', 'suscripciones')); // Pasar la variable a la vista
     }
 
     public function listavinos()
@@ -107,4 +108,36 @@ class HomeController extends Controller
         session()->flash('success', 'Su compra se realizó con éxito.');
         return redirect()->route('vinos.show', $id);
     }
+    // HomeController.php
+    public function edit($id)
+    {
+        $blog = Blog::findOrFail($id);
+        return view('blogs.edit', compact('blog'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'titulo' => 'required',
+            'contenido' => 'required',
+            'resumen' => 'nullable',
+            'imagen' => 'nullable|image',
+        ]);
+
+        $blog = Blog::findOrFail($id);
+        $blog->titulo = $request->titulo;
+        $blog->contenido = $request->contenido;
+        $blog->resumen = $request->resumen;
+
+        // Manejar la subida de la imagen
+        if ($request->hasFile('imagen')) {
+            $path = $request->file('imagen')->store('blog', 'public');
+            $blog->imagen = $path;
+        }
+
+        $blog->save();
+
+        return redirect()->route('publicacionblog.index')->with('success', 'Blog actualizado correctamente.');
+    }
+
 }

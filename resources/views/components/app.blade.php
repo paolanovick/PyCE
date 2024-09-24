@@ -12,6 +12,8 @@
 
     <title>Admin</title>
 
+   
+</head>
 
 <body class="body_admin">
     <div>
@@ -41,6 +43,13 @@
                 <!-- Enlace a la lista de vinos -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('vinos.index') }}">{{ __('Vinos') }}</a>
+                </li>
+                 <!-- Enlace a la lista de blogs -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('blogs.index') }}">{{ __('Blogs') }}</a>
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('suscripciones.index') }}">{{ __('suscripciones') }}</a>
                 </li>
 
                 <!-- Dropdown de perfil y logout -->
