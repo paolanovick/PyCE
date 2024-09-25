@@ -82,6 +82,7 @@ class HomeController extends Controller
 
     public function index()
     {
+        $suscripciones = '';
         $blogs = Blog::latest()->take(3)->get();
         //dd($blogs);
         return view('home', compact('blogs', 'suscripciones')); // Pasar la variable a la vista
@@ -139,5 +140,4 @@ class HomeController extends Controller
 
         return redirect()->route('publicacionblog.index')->with('success', 'Blog actualizado correctamente.');
     }
-
 }
