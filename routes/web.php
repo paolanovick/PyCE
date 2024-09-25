@@ -30,10 +30,14 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('vinos', VinoController::class)->names('vinos');
     Route::resource('blogs', BlogController::class)->names('blogs');
-    Route::resource('suscripciones', SuscripcionController::class);
 
 
+    //Route::get('/suscripciones', [SuscripcionController::class, 'index'])->name('suscripciones.index');
+    //Route::get('/suscripcion/{id}', [SuscripcionController::class, 'show'])->name('suscripciones.show');
+    //Route::post('/suscripcion', [SuscripcionController::class, 'store'])->name('suscripciones.store');
+    Route::resource('suscripciones', SuscripcionController::class)->names('suscripciones');
 });
+
 
 
 Route::middleware('guest')->group(function () {
@@ -53,9 +57,7 @@ Route::get('/nosotros', [NosotrosController::class, 'nosotros'])->name('nosotros
 
 
 // Rutas de Suscripción
-Route::get('/suscripcion', [SuscripcionController::class, 'index'])->name('suscripcion.index');
-Route::get('/suscripcion/{id}', [SuscripcionController::class, 'show'])->name('suscripcion.show');
-Route::post('/suscripcion', [SuscripcionController::class, 'store'])->name('suscripcion.store');
+
 
 
 // Mostrar todas las asesorías
@@ -88,4 +90,3 @@ Route::post('/club', [ClubController::class, 'store'])->name('club.store');
 // Rutas de Blog
 Route::get('/publicacionesblogs', [BlogController::class, 'index'])->name('publicacionblog.index');
 Route::get('/publicacionesblogs/{id}', [BlogController::class, 'show'])->name('publicacionblog.show');
-

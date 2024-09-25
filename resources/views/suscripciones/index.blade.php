@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<x-app :title="'Suscripciones'">
 
 @section('content')
 <div class="container">
