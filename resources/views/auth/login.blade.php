@@ -1,4 +1,4 @@
-<x-guest>
+<x-layout>
     <!-- Session Status -->
 
     <form method="POST" action="{{ route('login') }}">
@@ -49,4 +49,4 @@
 
         </div>
     </form>
-</x-guest>
+</x-layout>

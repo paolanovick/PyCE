@@ -1,43 +1,38 @@
 <x-app :title="'Suscripciones'">
-
-@section('content')
-<div class="container">
-    <h2 class="mb-4">Gestionar Suscripciones</h2>
-
-    @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
-
-    <div class="mb-3">
-        <a href="{{ route('suscripciones.create') }}" class="btn btn-primary">Crear Nueva Suscripción</a>
+    <div class="container mt-4">
+        <div class="mb-3">
+            <a href="{{ route('suscripciones.create') }}" class="btn btn-success">Agregar Suscripcion</a>
+        </div>
+        
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Nomrbe</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                   
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($suscripciones as $suscripcion)
+                    <tr>
+                       
+                        <td>{{ $suscripcion->Nombre }}</td>
+                        <td>{{ $suscripcion->email }}</td>
+                        
+                        <td>
+                            <a href="{{ route('blogs.edit', $suscripcion->id) }}" class="btn btn-primary">Editar</a>
+                            
+                            <form action="{{ route('blogs.destroy', $suscripcion->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
-
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Email</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($suscripciones as $suscripcion)
-            <tr>
-                <td>{{ $suscripcion->nombre }}</td>
-                <td>{{ $suscripcion->email }}</td>
-                <td>
-                    <a href="{{ route('suscripciones.edit', $suscripcion->id) }}" class="btn btn-warning">Editar</a>
-                    <form action="{{ route('suscripciones.destroy', $suscripcion->id) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar esta suscripción?');">Eliminar</button>
-                    </form>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-
-    {{ $suscripciones->links() }} <!-- Paginación -->
-</div>
-@endsection
+</x-app>

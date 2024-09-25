@@ -1,14 +1,12 @@
 <?php
 
-
-
 namespace App\Http\Controllers;
 
+use App\Models\Club;
 use App\Models\Vino;
 use App\Models\Asesoria; // Reemplaza BlogPost con Asesoria o el modelo que estés usando
 use Illuminate\Http\Request;
 use App\Models\Blog; // Asegúrate de tener esta línea
-
 
 class HomeController extends Controller
 {
@@ -23,8 +21,6 @@ class HomeController extends Controller
         return view('publicacionblog.show', compact('blog'));
     }
 
-
-
     public function nosotros()
     {
         return view('home.nosotros');
@@ -32,12 +28,29 @@ class HomeController extends Controller
 
     public function suscripcion()
     {
-        return view('home.suscripcion');
+        //dd("a");
+        $clubes = Club::all();
+        /*$clubes = [
+            (object)[
+                'id' => 1,
+                'nombre' => 'Suscripción Clásica',
+                'descripcion' => 'Acceso a vinos clásicos, ideal para los que disfrutan de una selección tradicional.',
+                'precio_mensual' => 1500,
+            ],
+            (object)[
+                'id' => 2,
+                'nombre' => 'Suscripción Premium',
+                'descripcion' => 'Disfruta de vinos premium seleccionados de las mejores bodegas.',
+                'precio_mensual' => 3000,
+            ]
+        ];*/
+        return view('home.misuscripcion', compact('clubes'));
     }
 
-    public function suscripcionDetail()
+    public function suscripcionDetail(Club $id)
     {
-        return view('home.suscripcion-detail');
+        $suscripcion = $id;
+        return view('home.suscripcion-detail', compact('suscripcion'));
     }
 
     public function asesoria()

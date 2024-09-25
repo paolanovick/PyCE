@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoriaAsesoriaController;
 use App\Http\Controllers\ClubController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NosotrosController;
 use App\Http\Controllers\ProfileController;
@@ -18,12 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
@@ -32,7 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('blogs', BlogController::class)->names('blogs');
 
 
-    //Route::get('/suscripciones', [SuscripcionController::class, 'index'])->name('suscripciones.index');
+
     //Route::get('/suscripcion/{id}', [SuscripcionController::class, 'show'])->name('suscripciones.show');
     //Route::post('/suscripcion', [SuscripcionController::class, 'store'])->name('suscripciones.store');
     Route::resource('suscripciones', SuscripcionController::class)->names('suscripciones');
@@ -51,6 +52,8 @@ Route::get('/publicacionesblogs', [HomeController::class, 'home'])->name('public
 Route::get('/publicaciones/{id}', [HomeController::class, 'show'])->name('publicaciones.show');
 
 
+Route::get('home.suscripcion', [HomeController::class, 'suscripcion'])->name('home.suscripcion');
+Route::get('home.suscripcion.detail/{id}', [HomeController::class, 'suscripcionDetail'])->name('home.suscripcion.detail');
 
 // Página de Nosotros
 Route::get('/nosotros', [NosotrosController::class, 'nosotros'])->name('nosotros');

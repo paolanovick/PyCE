@@ -3,13 +3,12 @@
 
     <h1>Detalle de Suscripción</h1>
     <p><strong>Nombre:</strong> {{ $suscripcion->nombre }}</p>
-    <p><strong>Descripción:</strong> {{ $suscripcion->descripcion }}</p>
-    <p><strong>Precio:</strong> ${{ $suscripcion->precio }}</p>
-
+    <p><strong>Descripcion:</strong> {{ $suscripcion->descripcion }}</p>
 
     <h2>Crear Nueva Suscripción</h2>
-    <form action="{{ route('suscripcion.store') }}" method="POST">
+    <form>
         @csrf
+        <input type="text" id="club" name="club" value="{{ $suscripcion->id }}">
         <div class="form-group">
             <label for="nombre">Nombre</label>
             <input type="text" class="form-control" id="nombre" name="nombre" required>

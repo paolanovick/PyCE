@@ -4,9 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/css.css') }}">
 
@@ -49,10 +47,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('blogs.index') }}">{{ __('Blogs') }}</a>
                         </li>
-                         <li class="nav-item">
-                            <a class="nav-link" href="suscripciones.index">{{ __('Suscripciones') }}</a>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="{{ route('suscripciones.index') }}">{{ __('Suscripciones') }}</a>
                         </li>
+                        
 
+                        <!-- Dropdown de perfil y logout -->
                         <!-- Dropdown de perfil y logout -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -62,16 +63,17 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{ route('profile.index') }}">Perfil</a></li>
                                 <li>
-                                    <form method="POST" action="{{ route('logout') }}">
+                                    <form method="POST" action="{{ route('logout') }}" id="logout-form">
                                         @csrf
-                                        <a href="#" class="dropdown-item"
-                                            onclick="event.preventDefault(); this.closest('form').submit();">
+                                        <button type="submit" class="dropdown-item">
                                             {{ __('Log Out') }}
-                                        </a>
+                                        </button>
                                     </form>
                                 </li>
                             </ul>
                         </li>
+
+
                     </ul>
                 </div>
             </div>
