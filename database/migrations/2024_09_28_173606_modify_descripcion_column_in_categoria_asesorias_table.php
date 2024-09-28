@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categoria_asesorias', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-            $table->string('descripcion')->nullable(); // Permitir NULL
-            $table->decimal('precio_mensual', 8, 2);
-            $table->timestamps();
+        Schema::table('categoria_asesorias', function (Blueprint $table) {
+            $table->string('descripcion')->nullable()->change(); // Cambia a nullable
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categoria_asesorias');
+        Schema::table('categoria_asesorias', function (Blueprint $table) {
+            $table->string('descripcion')->nullable(false)->change(); // Cambia a NOT NULL
+        });
     }
 };

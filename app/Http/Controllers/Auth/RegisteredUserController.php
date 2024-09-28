@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class RegisteredUserController extends Controller
 {
@@ -35,9 +36,18 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed'],
             //'password_confirmation
+        ], [
+            'name.required' => 'El nombre es obligatorio.',
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'email.unique' => 'El correo ya está registrado.',
+            'password.required' => 'La contraseña es obligatoria.',
+            'password.confirmed' => 'La confirmación de la contraseña no coincide.',
         ]);
 
         //return $request->all();
+
+        //verificar email
+
         try {
             $user = User::create([
                 'name' => $request->name,
@@ -54,8 +64,14 @@ class RegisteredUserController extends Controller
             Auth::login($user);
 
             return redirect(route('dashboard', absolute: false));
-        } catch (\Throwable $th) {
-            dd($th->getMessage());
+        } catch (
+            ValidationException  $th
+        ) {
+
+            //
+            return response()->json([
+                'errors' => $th->errors()
+            ], 422);
         }
     }
 }

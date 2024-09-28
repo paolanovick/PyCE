@@ -26,45 +26,29 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        //dd("logeand");
-        //aca llegan los datos 
-
-
+        // Validar los datos del formulario
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
-        // Obtener el usuario por su email
+        // Realizar una única consulta que busque al usuario con su email y verifique su rol
         $user = User::where('email', $request->email)->first();
 
-
-
-        // Verificar si el usuario existe y la contraseña es correcta
+        // Verificar si el usuario existe y si la contraseña es correcta
         if ($user && Hash::check($request->password, $user->password)) {
             // Iniciar la sesión manualmente
-
             Auth::login($user);
 
-
-            if ($user->rol == 'Administrador') {
-                // si usuario es administrador
-                // Redirigir al dashboard con sesión activa
-                return redirect()->route('dashboard')->with('success', 'Sesión iniciada correctamente.');
-            } else if ($user->rol == 'Usuario') {
-                //si usuario es usuario
-                // Redirigir al dashboard con sesión activa
-                return redirect()->route('dashboard')->with('success', 'Sesión iniciada correctamente.');
-            }
-
-
-
-
-            // Redirigir al dashboard con sesión activa
-            return redirect()->route('dashboard')->with('success', 'Sesión iniciada correctamente.');
+            // Redirigir según el rol del usuario
+            return match ($user->rol) {
+                'Administrador' => redirect()->route('dashboard')->with('success', 'Sesión iniciada correctamente como Administrador.'),
+                'Usuario' => redirect()->route('dashboard')->with('success', 'Sesión iniciada correctamente como Usuario.'),
+                default => back()->with('error', 'No tiene permisos para acceder.'),
+            };
         }
 
-        // Si falla, redirigir de vuelta con un mensaje de error
+        // Si las credenciales son incorrectas
         return back()->with('error', 'Credenciales incorrectas.');
     }
 

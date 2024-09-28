@@ -1,41 +1,37 @@
-<x-layout title="Asesorías">
-    <x-slot:title>Te asesoramos</x-slot:title>
-    <div class="asesorias-section">
-        <h1>Asesorías</h1>
-        <div class="asistencia-container">
-            <p>Club Del Vino pone a disposición de viticultores, enólogos y bodegas un servicio integral de asesoría en
-                campo y bodega,
-                con el fin de facilitar la toma de decisiones en el proceso de producción y elaboración del vino. Este
-                servicio
-                incluye:</p>
-            <p>Visitas in situ, asesoramiento técnico a demanda y personalizado, toma y análisis de muestras, informes
-                de
-                resultados y recomendaciones, seguimiento y tratamiento técnico de reclamaciones, entre otros servicios.
-            </p>
-            <p>Un equipamiento técnico innovador y puntero, garantizando la capacidad analítica en todas las etapas de
-                elaboración.</p>
-            <p>La atención de un equipo profesionales altamente cualiﬁcados y especializados en viticultura, procesos
-                enológicos, microbiología, análisis sensorial e ingeniería ambiental y sostenibilidad.</p>
-            <p>Garantía de confidencialidad y objetividad en el proceso de análisis y en los resultados.</p>
+<x-app :title="'Asesoria'">
+    <div class="container mt-4">
+        <div class="mb-3">
+            <a href="{{ route('categoria_asesorias.create') }}" class="btn btn-success">Nueva Asesoria</a>
         </div>
-
-        <div cla
-            @forelse($CategoriaAsesorias as $CategoriaAsesoria)
-                <div class="col-md-4">
-                  
-                        
-                            <h5 class="card-title">{{ $CategoriaAsesoria->nombre }}</h5>
-                            <p class="card-text">{{ $CategoriaAsesoria->descripcion }}</p>
-                           
-                            <!-- Botón de Más Información -->
-                            <a href="{{ route('categoriaasesorias.show', $CategoriaAsesoria->id) }}" class="btn btn-primary">Más Información</a>
-                           
+        
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>                    
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Precio mensual</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($categoria_asesorias as $categoria_asesoria)
+                    <tr>
                        
-                   
-                </div>
-            @empty
-                <p class="no-asesorias">No hay asesorías disponibles.</p>
-            @endforelse
-            </div>
-        </div>
-</x-layout>
+                        <td>{{ $categoria_asesoria->nombre }}</td>
+                        <td>{{ $categoria_asesoria->descripcion }}</td>
+                        <td>{{ $categoria_asesoria->precio_mensual }}</td>
+                        <td>
+                            <a href="{{ route('categoria_asesorias.edit', $categoria_asesoria->id) }}" class="btn btn-primary">Editar</a>
+                            
+                            <form action="{{ route('categoria_asesorias.destroy', $categoria_asesoria->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</x-app>

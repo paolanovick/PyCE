@@ -59,6 +59,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('clubs.index') }}">{{ __('Clubs') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('categoria_asesorias.index') }}">{{ __('Categoria_asesorias') }}</a>
+                        </li>
 
                         <!-- Saludo personalizado -->
                         @auth

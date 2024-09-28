@@ -11,6 +11,8 @@ class CategoriaAsesoria extends Model
     // Los campos que se pueden llenar masivamente
     protected $fillable = [
         'nombre',
-       
+        'descripcion',
+        'precio_mensual'
+
     ];
 }

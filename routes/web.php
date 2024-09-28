@@ -45,6 +45,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('suscripciones', SuscripcionController::class)->names('suscripciones');
 
+    Route::resource('categoria_asesorias', CategoriaAsesoriaController::class)->names('categoria_asesorias');
+
+
 
     // Rutas de administración del perfil (solo para administradores)
     Route::middleware('can:admin')->group(function () {
@@ -82,7 +85,8 @@ Route::get('/publicaciones/{id}', [HomeController::class, 'show'])->name('public
 Route::get('home.suscripcion', [HomeController::class, 'suscripcion'])->name('home.suscripcion');
 Route::get('home.suscripcion.detail/{club}', [HomeController::class, 'formsuscripcion'])->name('home.suscripcion.detail');
 
-
+Route::get('/asesoria', [HomeController::class, 'home'])->name('categoria_asesorias.index'); // Cambiado a 'home'
+Route::get('/asesoria/{id}', [HomeController::class, 'show'])->name('categoria_asesorias.show');
 
 
 // Página de Nosotros
