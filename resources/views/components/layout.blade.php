@@ -38,7 +38,9 @@
                     </li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="/categoriaasesoria">Asesoría</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="/login">Administradores</a>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="/login">Accede</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="/register">Unete</a>
                     </li>
                 </ul>
             </div>

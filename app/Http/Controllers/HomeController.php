@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Club;
+use App\Models\Suscripcion;
 use App\Models\Vino;
 use App\Models\Asesoria; // Reemplaza BlogPost con Asesoria o el modelo que estés usando
 use Illuminate\Http\Request;
@@ -47,10 +48,9 @@ class HomeController extends Controller
         return view('home.misuscripcion', compact('clubes'));
     }
 
-    public function suscripcionDetail(Club $id)
+    public function formsuscripcion(Club $club)
     {
-        $suscripcion = $id;
-        return view('home.suscripcion-detail', compact('suscripcion'));
+        return view('home.suscripcion-detail', compact('club'));
     }
 
     public function asesoria()
@@ -152,5 +152,25 @@ class HomeController extends Controller
         $blog->save();
 
         return redirect()->route('publicacionblog.index')->with('success', 'Blog actualizado correctamente.');
+    }
+
+    public function registrarInscripcion(Request $request)
+    {
+        //return $request->all();
+        $request->validate([
+            'club' => 'required',
+            'nombre' => 'required',
+            'email' => 'required',
+        ]);
+
+        $inscripcion = Suscripcion::create([
+            'nombre' => $request->nombre,
+            'email' => $request->email,
+            'tipo' => $request->club,
+        ]);
+
+        $inscripcion->save();
+
+        return redirect()->route('home.suscripcion')->with('success', 'Incripcion creado con éxito.');
     }
 }

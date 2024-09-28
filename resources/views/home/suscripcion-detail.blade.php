@@ -1,14 +1,15 @@
 <x-layout>
-    <x-slot:title>Detalle de Suscripción</x-slot:title>
+    <x-slot:title>Detalle de Club</x-slot:title>
 
-    <h1>Detalle de Suscripción</h1>
-    <p><strong>Nombre:</strong> {{ $suscripcion->nombre }}</p>
-    <p><strong>Descripcion:</strong> {{ $suscripcion->descripcion }}</p>
+    <h1>Detalle de Club</h1>
+    <p><strong>Nombre:</strong> {{ $club->nombre }}</p>
+    <p><strong>Descripcion:</strong> {{ $club->descripcion }}</p>
+    <p><strong>Precio mensual:</strong> {{ $club->precio_mensual }}</p>
 
-    <h2>Crear Nueva Suscripción</h2>
-    <form>
+    <h2>Inscribite</h2>
+    <form method="POST" action="{{ route('registrar_inscripcion') }}">
         @csrf
-        <input type="text" id="club" name="club" value="{{ $suscripcion->id }}">
+        <input type="hidden" id="club" name="club" value="{{ $club->id }}">
         <div class="form-group">
             <label for="nombre">Nombre</label>
             <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -17,14 +18,7 @@
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" name="email" required>
         </div>
-        <div class="form-group">
-            <label for="plan">Selecciona tu plan de suscripción</label>
-            <select class="form-control" id="plan" name="plan" required>
-                <option value="" disabled selected>Elige un plan</option>
-                <option value="clasica">Suscripción Clásica</option>
-                <option value="premium">Suscripción Premium</option>
-            </select>
-        </div>
+
         <button type="submit" class="btn btn-primary">Suscribirse</button>
     </form>
 

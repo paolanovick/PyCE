@@ -54,7 +54,7 @@
                         <h5 class="card-title">{{ $club->nombre }}</h5>
                         <p class="card-text">{{ $club->descripcion }}</p>
                         <p><strong>Precio Mensual:</strong> ${{ $club->precio_mensual }}</p>
-                        <a href="{{ route('home.suscripcion.detail', ['id' => $club]) }}" class="btn btn-primary">Más
+                        <a href="{{ route('home.suscripcion.detail', ['club' => $club]) }}" class="btn btn-primary">Más
                             Información</a>
                     </div>
                 </div>

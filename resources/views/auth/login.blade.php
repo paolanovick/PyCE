@@ -45,8 +45,13 @@
                 </a>
             @endif
 
+            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                {{ __('No tienes una cuenta?') }}
+            </a>
+
             <button class="ms-3" type="submit"> {{ __('Log in') }}</button>
 
         </div>
+
     </form>
 </x-layout>

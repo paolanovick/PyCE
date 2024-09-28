@@ -27,6 +27,8 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         //dd("logeand");
+        //aca llegan los datos 
+
 
         $request->validate([
             'email' => 'required|email',
@@ -36,11 +38,27 @@ class AuthenticatedSessionController extends Controller
         // Obtener el usuario por su email
         $user = User::where('email', $request->email)->first();
 
+
+
         // Verificar si el usuario existe y la contraseña es correcta
         if ($user && Hash::check($request->password, $user->password)) {
             // Iniciar la sesión manualmente
 
             Auth::login($user);
+
+
+            if ($user->rol == 'Administrador') {
+                // si usuario es administrador
+                // Redirigir al dashboard con sesión activa
+                return redirect()->route('dashboard')->with('success', 'Sesión iniciada correctamente.');
+            } else if ($user->rol == 'Usuario') {
+                //si usuario es usuario
+                // Redirigir al dashboard con sesión activa
+                return redirect()->route('dashboard')->with('success', 'Sesión iniciada correctamente.');
+            }
+
+
+
 
             // Redirigir al dashboard con sesión activa
             return redirect()->route('dashboard')->with('success', 'Sesión iniciada correctamente.');
@@ -63,7 +81,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('login');
+        return redirect()->route('home');
         //return redirect('/');
     }
 }

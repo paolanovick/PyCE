@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Vino;
 use App\Models\Blog;
+use Illuminate\Support\Facades\Auth;
 
 class VinoController extends Controller
 {
@@ -13,9 +14,10 @@ class VinoController extends Controller
      */
     public function index()
     {
-        $vinos = Vino::all(); // O cualquier lógica que uses para obtener los vinos
-        //dd("");
-        //dd($vinos);
+        
+        $vinos = Vino::all(); 
+
+        
         return view('vinos.index', ['vinos' => $vinos]);
     }
 
@@ -46,6 +48,7 @@ class VinoController extends Controller
         $vino->nombre = $request->nombre;
         $vino->descripcion = $request->descripcion;
         $vino->precio = $request->precio;
+        $vino->registrado = Auth::user()->id;
 
         if ($request->hasFile('imagen')) {
             $vino->imagen = $request->file('imagen')->store('imagenes', 'public');

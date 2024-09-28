@@ -13,5 +13,5 @@ class Club extends Model
     protected $guarded = ['id'];
     protected $fillable = ['nombre', 'descripcion', 'precio_mensual'];
 
-    // Puedes agregar otras configuraciones y relaciones si es necesario
 }
+
