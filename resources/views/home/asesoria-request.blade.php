@@ -26,7 +26,7 @@
             <input type="email" id="email" name="email" class="form-control" required>
         </div>
         
-        <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+        <button type="submit" class="btn btn-primary-violeta">Enviar Solicitud</button>
     </form>
 
     @if(session('success'))
