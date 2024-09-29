@@ -28,37 +28,30 @@
         </div>
     @endif
 
- <div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="row text-center">
-                    <div class="col-md-4 d-flex align-items-stretch">
-                        <div class="border border-danger p-3 flex-fill">
-                           <img src="{{asset('imagenes/botella_suscripcion.jpg')}}" alt="botella de vino">
-                            <h5 class="mt-2">Elegí la suscripción que más te guste</h5>
-                            <p>Conocé cada una de nuestras propuestas.</p>
-                            
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex align-items-stretch">
-                        <div class="border border-danger p-3 flex-fill">
-                        <img src="{{asset('imagenes/copa_club.jpg')}}" alt="copa de vino">
-                            <h5 class="mt-2">Recibí todos los meses distintos vinos</h5>
-                            <p>Con envío sin cargo a todo el país.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex align-items-stretch">
-                        <div class="border border-danger p-3 flex-fill">
-                        <img src="{{asset('imagenes/uvas_club.jpg')}}" alt="uvas">
-                            <h5 class="mt-2">Disfrutá de beneficios exclusivos</h5>
-                            <p>Descuentos, degustaciones y contenido sobre el mundo del vino.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+ <div class="row mb-4 text-center">
+    <div class="col-md-4 d-flex align-items-stretch">
+        <div class="border border-danger p-3 flex-fill">
+            <i class="fas fa-grapes"></i>
+            <h5 class="mt-2">Elegí la suscripción que más te guste</h5>
+            <p>Conocé cada una de nuestras propuestas.</p>
         </div>
-      
     </div>
+    <div class="col-md-4 d-flex align-items-stretch">
+        <div class="border border-danger p-3 flex-fill">
+            <i class="fas fa-glass-cheers"></i>
+            <h5 class="mt-2">Recibí todos los meses distintos vinos</h5>
+            <p>Con envío sin cargo a todo el país.</p>
+        </div>
+    </div>
+    <div class="col-md-4 d-flex align-items-stretch">
+        <div class="border border-danger p-3 flex-fill">
+            <i class="fas fa-wine-glass-alt"></i>
+            <h5 class="mt-2">Disfrutá de beneficios exclusivos</h5>
+            <p>Descuentos, degustaciones y contenido sobre el mundo del vino.</p>
+        </div>
+    </div>
+</div>
+
     
     <div class="row">
         @foreach($clubes as $club)
@@ -68,7 +61,7 @@
                         <h5 class="card-title">{{ $club->nombre }}</h5>
                         <p class="card-text">{{ $club->descripcion }}</p>
                         <p><strong>Precio Mensual:</strong> ${{ $club->precio_mensual }}</p>
-                        <a href="{{ url('/suscripcion/'.$club->id) }}" class="btn btn-primary-violeta">Más Información</a>
+                        <a href="{{ url('/suscripcion/'.$club->id) }}" class="btn btn-primary">Más Información</a>
                     </div>
                 </div>
             </div>
@@ -96,7 +89,7 @@
                 <option value="premium">Suscripción Premium</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary-violeta">Suscribirse</button>
+        <button type="submit" class="btn btn-primary">Suscribirse</button>
     </form>
 
 
