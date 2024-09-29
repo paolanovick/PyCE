@@ -9,17 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class VinoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        
-        $vinos = Vino::all(); 
 
-        
+        $vinos = Vino::all();
+
+
         return view('vinos.index', ['vinos' => $vinos]);
     }
+  
 
     /**
      * Show the form for creating a new resource.

@@ -122,7 +122,7 @@ class HomeController extends Controller
         $vinos = Vino::all(); // O cualquier lógica que uses para obtener los vinos
         //dd("");
         //dd($vinos);
-        return view('home.vinos', compact('vinos'));
+        return view('home.listavinos', compact('vinos'));
     }
 
     public function detallevino(Vino $vino)
