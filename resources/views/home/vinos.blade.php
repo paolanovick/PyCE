@@ -16,7 +16,7 @@
                         <h3 class="card-title">{{ $vino->nombre }}</h3>
                         <p class="card-text">{{ $vino->descripcion }}</p>
                         <p class="card-text"><strong>Precio:</strong> ${{ $vino->precio }}</p>
-                        <a href="{{ route('listavinos.show', $vino->id) }}" class="btn btn-primary">Comprar</a>
+                        <a href="{{ route('listavinos.show', $vino) }}" class="btn btn-primary">Comprar</a>
 
                     </div>
                 </div>

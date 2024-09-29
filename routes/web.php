@@ -8,7 +8,6 @@ use App\Http\Controllers\CategoriaAsesoriaController;
 use App\Http\Controllers\ClubController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\NosotrosController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SuscripcionController;
 use App\Http\Controllers\VinoController;
@@ -38,7 +37,9 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 
+    // Rutas de Vinos
     Route::resource('vinos', VinoController::class)->names('vinos');
+    // Rutas de Blog
     Route::resource('blogs', BlogController::class)->names('blogs');
 
     Route::resource('clubs', ClubController::class)->names('clubs');
@@ -56,9 +57,12 @@ Route::middleware('auth')->group(function () {
         Route::put('/admin/profile/{user}', [ProfileController::class, 'adminUpdate'])->name('admin.profile.update');
         Route::delete('/admin/profile/{user}', [ProfileController::class, 'adminDestroy'])->name('admin.profile.destroy');
     });
+
+    Route::resource('asesorias', AsesoriaController::class)->names('asesorias');
 });
 
-
+Route::get('/publicacionesblogs', [HomeController::class, 'home'])->name('publicacionblog.index'); // Cambiado a 'home'
+Route::get('/publicaciones/{blog}', [HomeController::class, 'showBlog'])->name('publicaciones.show');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
@@ -71,62 +75,19 @@ Route::middleware('guest')->group(function () {
 });
 
 
-Route::get('/misuscripciones', [HomeController::class, 'home'])->name('suscripciones');
+Route::get('/clubes', [HomeController::class, 'clubes'])->name('clubes');
+Route::get('home.formsuscripcion/{club}', [HomeController::class, 'formsuscripcion'])->name('home.formsuscripcion');
+
+Route::get('/nosotros', [HomeController::class, 'nosotros'])->name('nosotros');
 
 
+Route::get('/categoria', [HomeController::class, 'categoriaasesoria'])->name('categoria');
+Route::get('home.asesoria/{categoria}', [HomeController::class, 'formAsesoria'])->name('home.asesoria');
+Route::post('home.asesoria', [HomeController::class, 'registrarAsesoria'])->name('home.registrarasesoria');
 
-
-
-// Rutas de Blog
-Route::get('/publicacionesblogs', [HomeController::class, 'home'])->name('publicacionblog.index'); // Cambiado a 'home'
-Route::get('/publicaciones/{id}', [HomeController::class, 'show'])->name('publicaciones.show');
-
-
-Route::get('home.suscripcion', [HomeController::class, 'suscripcion'])->name('home.suscripcion');
-Route::get('home.suscripcion.detail/{club}', [HomeController::class, 'formsuscripcion'])->name('home.suscripcion.detail');
-
-Route::get('/asesoria', [HomeController::class, 'home'])->name('categoria_asesorias.index'); // Cambiado a 'home'
-Route::get('/asesoria/{id}', [HomeController::class, 'show'])->name('categoria_asesorias.show');
-
-
-// Página de Nosotros
-Route::get('/nosotros', [NosotrosController::class, 'nosotros'])->name('nosotros');
-
-
-// Rutas de Suscripción
-
-
-
-// Mostrar todas las asesorías
-Route::get('/asesoria', [AsesoriaController::class, 'index'])->name('asesoria.index');
-// Mostrar una asesoría específica
-Route::get('/asesoria/{id}', [AsesoriaController::class, 'show'])->name('asesorias.show');
-// Mostrar el formulario de solicitud de asesoría
-Route::get('/asesorias/{id}/request', [AsesoriaController::class, 'request'])->name('asesorias.request');
-// Almacenar la solicitud de asesoría
-Route::post('/asesorias/store', [AsesoriaController::class, 'store'])->name('asesoria.store');
-
-
-Route::get('/categoriaasesoria', [CategoriaAsesoriaController::class, 'index'])->name('categoriaasesoria.index');
-Route::get('/categoriaasesoria/{id}', [CategoriaAsesoriaController::class, 'show'])->name('categoriaasesorias.show');
-
-// Rutas de Vinos
 
 Route::get('/listavinos', [HomeController::class, 'listavinos'])->name('listavinos');
-Route::get('/homevino/{id}', [HomeController::class, 'detallevino'])->name('listavinos.show');
+Route::get('/home.vino/{vino}', [HomeController::class, 'detallevino'])->name('listavinos.show');
 
-Route::post('/vinos/{id}/comprar', [HomeController::class, 'comprar'])->name('vinos.comprar');
-//Route::get('/vinos/create', [VinoController::class, 'create'])->name('vinos.create');
-//Route::post('/vinos', [VinoController::class, 'store'])->name('vinos.store');
-
-
-
-// Rutas de Club
-Route::post('/club', [ClubController::class, 'store'])->name('club.store');
-
-// Rutas de Blog
-Route::get('/publicacionesblogs', [BlogController::class, 'index'])->name('publicacionblog.index');
-Route::get('/publicacionesblogs/{id}', [BlogController::class, 'show'])->name('publicacionblog.show');
-
-
-Route::post('/registrar_inscripcion', [HomeController::class, 'registrarInscripcion'])->name('registrar_inscripcion');
+Route::post('/home.vino.comprar/{vino}', [HomeController::class, 'comprar'])->name('vinos.comprar');
+Route::post('/home.inscripcion', [HomeController::class, 'registrarInscripcion'])->name('home.inscripcion');

@@ -28,7 +28,7 @@
                     <li><strong>Potencial de Guarda:</strong> {{ $vino->potencial_guarda }}</li>
                 </ul>
 
-                <form action="{{ route('vinos.comprar', $vino->id) }}" method="POST">
+                <form action="{{ route('vinos.comprar', $vino) }}" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-primary">Comprar</button>
                 </form>

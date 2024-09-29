@@ -47,11 +47,11 @@
                             <a class="nav-link" href="{{ route('vinos.index') }}">{{ __('Vinos') }}</a>
                         </li>
                         <!-- Enlace a la lista de blogs -->
-                        @if (Auth::user()->rol == 'administrador')
+                      
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('blogs.index') }}">{{ __('Blogs') }}</a>
                             </li>
-                        @endif
+                        
                         <li class="nav-item">
                             <a class="nav-link"
                                 href="{{ route('suscripciones.index') }}">{{ __('Suscripciones') }}</a>

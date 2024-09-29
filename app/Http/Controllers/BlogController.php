@@ -69,7 +69,12 @@ class BlogController extends Controller
         return redirect()->route('blogs.index')->with('success', 'Blog actualizado correctamente.');
     }
 
+    public function destroy($id)
+    {
+        $blog = Blog::findOrFail($id); // Obtener la opción por ID
+        $blog->delete(); // Eliminar la opción
 
-    // Métodos edit, update y destroy siguen una estructura similar...
+        return redirect()->route('blogs.index')->with('success', 'Opción del blog eliminada exitosamente.');
+    }
 }
 

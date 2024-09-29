@@ -1,6 +1,6 @@
 /* Ajustes generales */
 body {
-   /* background-color: #fcfbfb;*/
+  
     font-family: 'Arial', sans-serif;
     background-color: rgb(237, 6, 160);
       -text-size-adjust: 100%; /* Para navegadores modernos */
@@ -20,8 +20,48 @@ h1 {
 h2 {
     font-size: 1.75rem;
     margin-bottom: 15px;
+    color: aqua;
+}
+/* Estilo para los artículos del blog */
+section {
+    margin-top: 40px;
 }
 
+section h2 {
+    color: #343a40;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.cardBlog {
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto de transición */
+    overflow: hidden; /* Asegura que los bordes redondeados no se superpongan con las imágenes */
+    background-color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.cardBlog:hover {
+    transform: translateY(-5px); /* Eleva la tarjeta al hacer hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+}
+
+.cardBlog img {
+    max-width: 300px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.card-body {
+    padding: 15px; /* Espaciado interno */
+}
+
+/* Estilo para las secciones del blog */
+.blog-content {
+    color: #6c757d;
+}
 /* Estilo para las botellas */
 .botellas {
     max-width: 200px; /* Ajusta el tamaño de la imagen según sea necesario */

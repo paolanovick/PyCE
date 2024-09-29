@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoriaAsesoria;
 use App\Models\Club;
 use App\Models\Suscripcion;
 use App\Models\Vino;
 use App\Models\Asesoria; // Reemplaza BlogPost con Asesoria o el modelo que estés usando
 use Illuminate\Http\Request;
 use App\Models\Blog; // Asegúrate de tener esta línea
+use Illuminate\Validation\ValidationException;
 
 class HomeController extends Controller
 {
@@ -16,10 +18,11 @@ class HomeController extends Controller
         $blogs = Blog::latest()->take(30)->get(); // Obtiene los últimos 30 blogs
         return view('home', compact('blogs'));
     }
-    public function show($id)
+
+
+    public function showBlog(Blog $blog)
     {
-        $blog = Blog::findOrFail($id);
-        return view('publicacionblog.show', compact('blog'));
+        return view('home.blog', compact('blog'));
     }
 
     public function nosotros()
@@ -27,56 +30,69 @@ class HomeController extends Controller
         return view('home.nosotros');
     }
 
-    public function suscripcion()
+    public function clubes()
     {
         //dd("a");
         $clubes = Club::all();
-        /*$clubes = [
-            (object)[
-                'id' => 1,
-                'nombre' => 'Suscripción Clásica',
-                'descripcion' => 'Acceso a vinos clásicos, ideal para los que disfrutan de una selección tradicional.',
-                'precio_mensual' => 1500,
-            ],
-            (object)[
-                'id' => 2,
-                'nombre' => 'Suscripción Premium',
-                'descripcion' => 'Disfruta de vinos premium seleccionados de las mejores bodegas.',
-                'precio_mensual' => 3000,
-            ]
-        ];*/
-        return view('home.misuscripcion', compact('clubes'));
+
+        return view('home.club', compact('clubes'));
     }
 
     public function formsuscripcion(Club $club)
     {
-        return view('home.suscripcion-detail', compact('club'));
+        return view('home.suscripcion', compact('club'));
     }
 
-    public function asesoria()
+    public function categoriaasesoria()
     {
-        return view('home.asesoria');
+        // Obtén todas las categorías de asesorías de la base de datos
+        $CategoriaAsesorias = CategoriaAsesoria::all();
+
+        // Pasa las categorías a la vista
+        return view('home.categoriaasesoria', compact('CategoriaAsesorias'));
     }
 
-    public function asesoriaDetail()
+    public function formAsesoria(CategoriaAsesoria $categoriaasesoria)
     {
-        return view('home.asesoria-detail');
+        return view('home.formasesoria', compact('categoriaasesoria'));
     }
 
-    public function asesoriaRequest(Request $request)
+    public function registrarAsesoria(Request $request)
     {
-        // Validar y almacenar los datos del formulario de asesoría
-        $data = $request->validate([
-            'nombre' => 'required|string',
-            'email' => 'required|email',
-            // Otros campos
-        ]);
+        // Validar los datos de entrada
+        $request->validate([
+            'nombre' => 'required|string|max:255', 
+            'celular' => 'required|numeric|min:10',
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . Asesoria::class],
+            
+        ], [
+            'nombre.required' => 'El campo nombre es obligatorio.',
+            'email.unique' => 'El correo ya está registrado.',
+            ]);
 
-        // Aquí guardar los datos en la base de datos o enviar notificaciones
-        // Ejemplo: AsesoriaRequest::create($data);
+        // Buscar la categoría de asesoría
+        $model_club = CategoriaAsesoria::findOrFail($request->categoriaasesoria);
 
-        return redirect()->back()->with('success', 'Ud será contactado por la bodega en 24 horas.');
+        try {
+            // Crear la asesoría
+            Asesoria::create([
+                'nombre' => $request->nombre,
+                'email' => $request->email,
+                'celular' => $request->celular,
+                 ]);
+
+            // Redirigir en caso de éxito con mensaje flash
+            session()->flash('success', 'Su asesoría se registró con éxito.');
+
+            return redirect()->route('home.asesoria', ['club' => $model_club]);
+        } catch (\Exception $e) {
+            // Redirigir en caso de error con mensaje flash
+            session()->flash('error', 'Ocurrió un error al registrar la asesoría: ' . $e->getMessage());
+
+            return redirect()->route('home.asesoria', ['club' => $model_club]);
+        }
     }
+
 
     public function suscripcionRequest(Request $request)
     {
@@ -106,21 +122,18 @@ class HomeController extends Controller
         $vinos = Vino::all(); // O cualquier lógica que uses para obtener los vinos
         //dd("");
         //dd($vinos);
-        return view('home.vinos', ['vinos' => $vinos]);
+        return view('home.vinos', compact('vinos'));
     }
 
-    public function detallevino($id)
+    public function detallevino(Vino $vino)
     {
-        $vino = Vino::findOrFail($id);
-        $blogs = Blog::all(); // Obtiene todos los blogs
-
-        return view('home.detallevino', compact('vino', 'blogs')); // Pasa el vino y los blogs a la vista
+        return view('home.detallevino', compact('vino')); // Pasa el vino y los blogs a la vista
     }
 
-    public function comprar(Request $request, $id)
+    public function comprar(Request $request, Vino $vino)
     {
         session()->flash('success', 'Su compra se realizó con éxito.');
-        return redirect()->route('vinos.show', $id);
+        return redirect()->route('listavinos.show', $vino);
     }
     // HomeController.php
     public function edit($id)
@@ -156,21 +169,32 @@ class HomeController extends Controller
 
     public function registrarInscripcion(Request $request)
     {
-        //return $request->all();
         $request->validate([
             'club' => 'required',
             'nombre' => 'required',
-            'email' => 'required',
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . Suscripcion::class],
+        ], [
+            'email.unique' => 'El correo ya está registrado.',
         ]);
 
-        $inscripcion = Suscripcion::create([
-            'nombre' => $request->nombre,
-            'email' => $request->email,
-            'tipo' => $request->club,
-        ]);
 
-        $inscripcion->save();
+        $model_club = Club::findOrFail($request->club);
 
-        return redirect()->route('home.suscripcion')->with('success', 'Incripcion creado con éxito.');
+
+        try {
+            Suscripcion::create([
+                'nombre' => $request->nombre,
+                'email' => $request->email,
+                'tipo' => $request->club,
+            ]);
+
+            // Redirigir en caso de éxito
+            session()->flash('success', 'Su compra se realizó con éxito.');
+
+            return redirect()->route('home.formsuscripcion', ['club' => $model_club])->with('success', 'Inscripción creada con éxito.');
+        } catch (\Exception $e) {
+            // Redirigir en caso de error
+            session()->flash('error', 'Ocurrió un error: ' . $e->getMessage());
+        }
     }
 }
