@@ -54,10 +54,10 @@
             <div class="col-12 mb-4"> <!-- Ancho completo -->
                 <div class="cardBlog" style="display: flex; flex-direction: row; align-items: center;">
                     @if($index % 2 == 0)
-                    <img src="{{ Storage::disk('blog')->url($blog->imagen) }}" alt="{{ $blog->titulo }}" style="max-width: 300px; height: 150px;">
+                    <img src="{{ Storage::disk('blog')->url($blog->imagen) }}" alt="{{ $blog->titulo }}" style="max-width: 300px; height: 150px;margin-right: 20px;">
                     @else
 
-                    <img src="{{ Storage::disk('blog')->url($blog->imagen) }}" alt="{{ $blog->titulo }}" style="width: 25%; height: auto; margin-left: 20px;">
+                    <img src="{{ Storage::disk('blog')->url($blog->imagen) }}" alt="{{ $blog->titulo }}" style="width: 25%; height: auto; margin-left: 20px;margin-right: 20px;">
                     @endif
                     <div class="card-body" style="flex: 1;">
                         <h5 class="card-title">{{ $blog->titulo }}</h5>
