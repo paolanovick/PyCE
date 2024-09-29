@@ -1,47 +1,29 @@
-<x-app :title="'Vinos'">
+<!-- resources/views/vinos/index.blade.php -->
 
-     <div class="container mt-4">
-        <!-- Botón para agregar un nuevo vino -->
-        <div class="mb-3">
-            <a href="{{ route('vinos.create') }}" class="btn btn-success">Agregar Vino</a>
-        </div>
-    <div class="container">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Imagen</th>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Precio</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($vinos as $vino)
-                    <tr>
-                        <!-- Columna para la imagen -->
-                        <td>
-                            <img src="{{ Storage::disk('imagenes')->url($vino->imagen) }}" alt="{{ $vino->nombre }}" class="vino-imagen" style="width: 100px; height: auto;">
-                        </td>
-                        <!-- Columna para el nombre -->
-                        <td>{{ $vino->nombre }}</td>
-                        <!-- Columna para la descripción -->
-                        <td>{{ $vino->descripcion }}</td>
-                        <!-- Columna para el precio -->
-                        <td>${{ $vino->precio }}</td>
-                        <!-- Columna para los botones de editar y eliminar -->
-                        <td>
-                            <a href="{{ route('vinos.edit', $vino->id) }}" class="btn btn-primary">Editar</a>
-                            <form action="{{ route('vinos.destroy', $vino->id) }}" method="POST" style="display: inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+<x-layout :title="'Vinos'">
+
+    <h1>Listado de Vinos</h1>
+    <h2>Vinos Ricos</h2>
+
+
+
+    <div class="row">
+        @foreach ($vinos as $vino)
+            <div class="col-md-4">
+               
+                <div class="card mb-4">
+                    <img src="{{ Storage::disk('imagenes')->url($vino->imagen) }}" alt="{{ $vino->nombre }}"
+                         class="card-img-top vino-imagen">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ $vino->nombre }}</h3>
+                        <p class="card-text">{{ $vino->descripcion }}</p>
+                        <p class="card-text"><strong>Precio:</strong> ${{ $vino->precio }}</p>
+                       <a href="{{ route('vinos.show', $vino->id) }}" class="btn btn-primary-violeta">Comprar</a>
+
+                    </div>
+                </div>
+            </div>
+        @endforeach
     </div>
 
 </x-app>

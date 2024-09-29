@@ -30,7 +30,7 @@
 
                 <form action="{{ route('vinos.comprar', $vino->id) }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-primary">Comprar</button>
+                    <button type="submit" class="btn btn-primary-violeta">Comprar</button>
                 </form>
             </div>
         </div>

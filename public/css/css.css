@@ -1,17 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 /* Ajustes generales */
 body {
-   /* background-color: #fcfbfb;*/
-    font-family: 'Arial', sans-serif;
-    background-color: rgb(245, 239, 243);
+    background-color: #fcfbfb;
+    font-family: 'Roboto', sans-serif;
     
 }
 
 h1, h2 {
     color: #333;
+    font-family: 'Roboto',sans-serif;
 }
 
 h1 {
-    font-weight: bold;
+   /* font-weight: bold;*/
     text-transform: uppercase;
     margin-bottom: 20px;
 }
@@ -23,8 +25,8 @@ h2 {
 
 /* Estilo para las botellas */
 .botellas {
-    max-width: 200px; /* Ajusta el tamaño de la imagen según sea necesario */
-    height: 180px; /* Mantiene la proporción de la imagen */
+    max-width: 200px;
+    height: 180px; 
 }
 
 /* Estilo para los artículos del blog */
@@ -268,39 +270,14 @@ article:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el cursor */
     background-color: #b2936d; /* Cambia el color de fondo en hover */
 }
-/* Color del título */
-.navbar-brand {
-    color: #ffffff;
-    font-weight: bold; /* Negrita */
-    text-transform: uppercase; /* Letras mayúsculas */
+
+/*Estilo botones*/
+.btn-primary-violeta{
+    background-color: rgb(156, 27, 110);
+    color: rgb(254, 254, 254);
 }
 
-/* Enlaces de texto */
-.text-white {
-    color: #ffffff !important; /* Asegura que el texto sea blanco */
-}
-
-/* Estilos para la imagen del carrito */
-.cart-icon {
-    position: relative;
-    width: 25px; /* Ajusta el tamaño del ícono del carrito */
-    height: auto; /* Mantiene la proporción */
-}
-
-.cart-badge {
-    position: absolute;
-    top: -5px; /* Ajusta la posición del badge */
-    right: -5px; /* Ajusta la posición del badge */
-    background-color: red; /* Color del badge */
-    color: white; /* Color del texto del badge */
-    border-radius: 50%; /* Hacerlo circular */
-    padding: 2px 6px; /* Espaciado interno del badge */
-    font-size: 0.8rem; /* Tamaño de fuente del badge */
-}
-
-/* Estilos para el ícono de usuario */
-.user-icon {
-    position: relative;
-    width: 25px; /* Ajusta el tamaño del ícono del usuario */
-    height: auto; /* Mantiene la proporción */
+.btn-primary-violeta:hover{
+    background-color:rgb(181, 38, 131);
+    color: rgb(254, 254, 254);
 }

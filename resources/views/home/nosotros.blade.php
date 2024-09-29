@@ -4,7 +4,7 @@
         <div class="col-md-6">
             <h2 class="mb-3">Nuestra Historia</h2>
             <p>
-                Fundada en [año], nuestra empresa ha estado comprometida en ofrecer productos de alta calidad, con un enfoque en la satisfacción de nuestros clientes. Lo que comenzó como un pequeño emprendimiento se ha convertido en una empresa reconocida en el sector de vinos, con una amplia gama de productos para todos los gustos.
+                Fundada en el año 2004, nuestra empresa ha estado comprometida en ofrecer productos de alta calidad, con un enfoque en la satisfacción de nuestros clientes. Lo que comenzó como un pequeño emprendimiento se ha convertido en una empresa reconocida en el sector de vinos, con una amplia gama de productos para todos los gustos.
             </p>
         </div>
          <div class="col-md-6">
