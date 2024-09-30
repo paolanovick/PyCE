@@ -7,5 +7,5 @@
     <p><strong>Precio:</strong> ${{ $suscripcion->precio }}</p>
 
     <!-- Podrías agregar un botón aquí para suscribirse -->
-    <a href="{{ route('suscripcion.index') }}" class="btn btn-primary">Volver a Suscripciones</a>
+    <a href="{{ route('suscripcion.index') }}" class="btn btn-primary-violeta">Volver a Suscripciones</a>
 </x-layout>

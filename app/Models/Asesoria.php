@@ -9,15 +9,7 @@ class Asesoria extends Model
 {
     use HasFactory;
 
-    // Los campos que se pueden llenar masivamente
-    protected $fillable = [
-        'titulo',
-        'resumen',
-        'contenido',
-        'imagen',
-        'email', 
-    ];
-
+    protected $guarded = ['id'];
     // Si necesitas configurar los timestamps, puedes habilitarlos o deshabilitarlos aquí
     public $timestamps = true;
 }

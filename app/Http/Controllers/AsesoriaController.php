@@ -2,25 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoriaAsesoria;
 use Illuminate\Http\Request;
 use App\Models\Asesoria;
 
 class AsesoriaController extends Controller
 {
-    public function index()
-    {
 
-        // Obtén todas las asesorías de la base de datos
-        $asesorias = Asesoria::all();
-        //dd($asesorias); // Muestra el contenido de la variable $asesorias
-        // Pasa las asesorías a la vista
-        return view('home.asesoria', compact('asesorias'));
-    }
-    public function show($id)
-    {
-        $asesoria = Asesoria::findOrFail($id);
-        return view('home.asesoria-detail', compact('asesoria'));
-    }
 
     public function store(Request $request)
     {
@@ -30,7 +18,7 @@ class AsesoriaController extends Controller
             'contenido' => 'required|string',
             'imagen' => 'nullable|string',
             'email' => 'required|email',
-           
+
         ]);
 
         Asesoria::create([
@@ -43,13 +31,5 @@ class AsesoriaController extends Controller
 
         ]);
         return redirect()->back()->with('success', 'Ya estás inscrito para recibir asesorías.');
-
-      
-    }
-
-    public function request($id)
-    {
-        $asesoria = Asesoria::findOrFail($id);
-        return view('home.asesoria-request', compact('asesoria'));
     }
 }

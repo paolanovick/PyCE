@@ -17,6 +17,8 @@ class CreateSuscripcionesTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('email')->unique();
+            $table->string('tipo')->nullable(); // Agregar campo tipo
+            $table->text('informacion_adicional')->nullable(); // Agregar campo información adicional
             $table->timestamps();
         });
     }

@@ -9,5 +9,11 @@ class Suscripcion extends Model
 {
     use HasFactory;
     protected $table = 'suscripciones'; //Te falto poner esto
-    protected $fillable = ['nombre', 'email', 'tipo', 'informacion_adicional'];
+    protected $guarded = ['id'];
+    protected $fillable = ['nombre', 'email', 'tipo', 'descripcion'];
+
+    public function clubs()
+    {
+        return $this->hasOne(Club::class, 'id', 'tipo');
+    }
 }

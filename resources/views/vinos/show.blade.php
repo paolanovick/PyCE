@@ -1,8 +1,8 @@
-<x-layout>
+<x-app>
     <x-slot:title>{{ $vino->nombre }}</x-slot:title>
 
     <div class="container mt-5">
-        @if(session('success'))
+        @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
@@ -11,7 +11,7 @@
         <h1>{{ $vino->nombre }}</h1>
         <div class="row">
             <div class="col-md-6">
-                <img src="{{ asset('storage/' . $vino->imagen) }}" alt="{{ $vino->nombre }}" class="img-fluid">
+                <img src="{{ Storage::disk('imagenes')->url($vino->imagen) }}" alt="{{ $vino->nombre }}" class="img-fluid">
             </div>
             <div class="col-md-6">
                 <p><strong>Descripción:</strong> {{ $vino->descripcion }}</p>
@@ -30,9 +30,9 @@
 
                 <form action="{{ route('vinos.comprar', $vino->id) }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-primary">Comprar</button>
+                    <button type="submit" class="btn btn-primary-violeta">Comprar</button>
                 </form>
             </div>
         </div>
     </div>
-</x-layout>
+</x-app>

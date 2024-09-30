@@ -25,7 +25,7 @@
                             <p class="card-text">{{ $asesoria->descripcion }}</p>
                            
                             <!-- Botón de Más Información -->
-                            <a href="{{ route('asesorias.show', $asesoria->id) }}" class="btn btn-primary">Más Información</a>
+                            <a href="{{ route('asesorias.show', $asesoria->id) }}" class="btn btn-primary-violeta">Más Información</a>
                            
                        
                    

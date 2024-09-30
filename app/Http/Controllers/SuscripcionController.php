@@ -2,76 +2,86 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Club; // Si usas Clubes de una base de datos
+use App\Models\Club;
 use App\Models\Suscripcion;
+use Illuminate\Http\Request;
 
 class SuscripcionController extends Controller
 {
-    // Método para mostrar la página de suscripción con las dos opciones
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        // Si no necesitas usar la base de datos, puedes usar este arreglo simulado
-        $clubes = [
-            (object)[
-                'id' => 1,
-                'nombre' => 'Suscripción Clásica',
-                'descripcion' => 'Acceso a vinos clásicos, ideal para los que disfrutan de una selección tradicional.',
-                'precio_mensual' => 1500,
-            ],
-            (object)[
-                'id' => 2,
-                'nombre' => 'Suscripción Premium',
-                'descripcion' => 'Disfruta de vinos premium seleccionados de las mejores bodegas.',
-                'precio_mensual' => 3000,
-            ]
-        ];
-
-        return view('home.suscripcion', ['clubes' => $clubes]);
+        $suscripciones = Suscripcion::all();
+        return view('suscripciones.index', compact('suscripciones'));
     }
 
-    // Método para mostrar los detalles de la suscripción
-    public function show($id)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        // Simulación de las suscripciones para mostrar detalles
-        $suscripciones = [
-            1 => (object)[
-                'id' => 1,
-                'nombre' => 'Suscripción Clásica',
-                'descripcion' => 'Acceso a vinos clásicos.',
-                'precio' => 1500
-            ],
-            2 => (object)[
-                'id' => 2,
-                'nombre' => 'Suscripción Premium',
-                'descripcion' => 'Acceso a vinos Premium seleccionados.',
-                'precio' => 3000
-            ]
-        ];
-
-        $suscripcion = $suscripciones[$id] ?? null;
-
-        if (!$suscripcion) {
-            return redirect()->route('suscripcion.index')->with('error', 'Suscripción no encontrada.');
-        }
-
-        return view('home.suscripcion-detail', ['suscripcion' => $suscripcion]);
+        return view('suscripciones.create');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
-        $request->validate([
+        // Validar los datos recibidos del formulario
+        $data = $request->validate([
             'nombre' => 'required|string|max:255',
-            'email' => 'required|email|unique:suscripciones,email',
-            'plan' => 'required|string',
+            'descripcion' => 'required|string',
+            'precio' => 'required|numeric',
         ]);
 
-        Suscripcion::create([
-            'nombre' => $request->input('nombre'),
-            'email' => $request->input('email'),
-            'plan' => $request->input('plan'), // Agregar el plan
+        // Crear una nueva suscripción en la base de datos
+        Club::create($data);
+
+        // Redirigir a la vista de listado de suscripciones con un mensaje de éxito
+        return redirect()->route('suscripciones.index')->with('success', 'Suscripción creada exitosamente.');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit($id)
+    {
+        // Obtener la suscripción por ID para editar
+        $suscripcion = Suscripcion::findOrFail($id);
+        return view('suscripciones.edit', compact('suscripcion'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, $id)
+    {
+        // Validar los datos actualizados
+        $data = $request->validate([
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'required|string',
+            'precio' => 'required|numeric',
         ]);
 
-        return redirect()->back()->with('success', '¡Te has suscripto exitosamente!');
+        // Actualizar la suscripción en la base de datos
+        $suscripcion = Suscripcion::findOrFail($id);
+        $suscripcion->update($data);
+
+        return redirect()->route('suscripciones.index')->with('success', 'Suscripción actualizada exitosamente.');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($id)
+    {
+        // Eliminar una suscripción
+        $suscripcion = Suscripcion::findOrFail($id);
+        $suscripcion->delete();
+
+        return redirect()->route('suscripciones.index')->with('success', 'Suscripción eliminada exitosamente.');
     }
 }
