@@ -38,20 +38,17 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
                         </li>
-                        <!-- Enlace a la página principal -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
-                        </li>
+                       
                         <!-- Enlace a la lista de vinos -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('vinos.index') }}">{{ __('Vinos') }}</a>
                         </li>
                         <!-- Enlace a la lista de blogs -->
-                      
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('blogs.index') }}">{{ __('Blogs') }}</a>
-                            </li>
-                        
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('blogs.index') }}">{{ __('Blogs') }}</a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link"
                                 href="{{ route('suscripciones.index') }}">{{ __('Suscripciones') }}</a>
@@ -60,7 +57,8 @@
                             <a class="nav-link" href="{{ route('clubs.index') }}">{{ __('Clubs') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('categoria_asesorias.index') }}">{{ __('Categoria_asesorias') }}</a>
+                            <a class="nav-link"
+                                href="{{ route('categoria_asesorias.index') }}">{{ __('Categoria de Asesorias') }}</a>
                         </li>
 
                         <!-- Saludo personalizado -->

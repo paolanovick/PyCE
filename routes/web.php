@@ -82,7 +82,7 @@ Route::get('/nosotros', [HomeController::class, 'nosotros'])->name('nosotros');
 
 
 Route::get('/categoria', [HomeController::class, 'categoriaasesoria'])->name('categoria');
-Route::get('home.asesoria/{categoria}', [HomeController::class, 'formAsesoria'])->name('home.asesoria');
+Route::get('home.asesoria/{categoriaasesoria}', [HomeController::class, 'formAsesoria'])->name('home.asesoria');
 Route::post('home.asesoria', [HomeController::class, 'registrarAsesoria'])->name('home.registrarasesoria');
 
 

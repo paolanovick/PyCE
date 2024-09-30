@@ -28,7 +28,8 @@
                     <p class="card-text">{{ $CategoriaAsesoria->descripcion }}</p>
 
                     <!-- Botón de Más Información -->
-                    <a href="{{ route('home.asesoria', $CategoriaAsesoria->id) }}" class="btn btn-primary">Más
+                    <a href="{{ route('home.asesoria', ['categoriaasesoria' => $CategoriaAsesoria]) }}"
+                        class="btn btn-primary">Más
                         Información</a>
 
 

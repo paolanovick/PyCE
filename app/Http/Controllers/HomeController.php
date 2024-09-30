@@ -59,37 +59,42 @@ class HomeController extends Controller
 
     public function registrarAsesoria(Request $request)
     {
+        //return $request->all();
         // Validar los datos de entrada
         $request->validate([
-            'nombre' => 'required|string|max:255', 
+            'categoriaasesoria_id' => 'required|string|max:255',
+            'nombre' => 'required|string|max:255',
             'celular' => 'required|numeric|min:10',
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . Asesoria::class],
-            
+
         ], [
             'nombre.required' => 'El campo nombre es obligatorio.',
             'email.unique' => 'El correo ya está registrado.',
-            ]);
-
+        ]);
+        //categoriaasesoria_id
         // Buscar la categoría de asesoría
-        $model_club = CategoriaAsesoria::findOrFail($request->categoriaasesoria);
+        $model_categoria = CategoriaAsesoria::findOrFail($request->categoriaasesoria_id);
+
+        //dd("as");
 
         try {
             // Crear la asesoría
             Asesoria::create([
-                'nombre' => $request->nombre,
+                'nombre_apellido' => $request->nombre,
                 'email' => $request->email,
                 'celular' => $request->celular,
-                 ]);
+                'categoria_id' => $request->categoriaasesoria_id
+            ]);
 
             // Redirigir en caso de éxito con mensaje flash
             session()->flash('success', 'Su asesoría se registró con éxito.');
 
-            return redirect()->route('home.asesoria', ['club' => $model_club]);
+            return redirect()->route('home.asesoria', ['categoriaasesoria' => $model_categoria]);
         } catch (\Exception $e) {
             // Redirigir en caso de error con mensaje flash
             session()->flash('error', 'Ocurrió un error al registrar la asesoría: ' . $e->getMessage());
 
-            return redirect()->route('home.asesoria', ['club' => $model_club]);
+            return redirect()->route('home.asesoria', ['categoriaasesoria' => $model_categoria]);
         }
     }
 
