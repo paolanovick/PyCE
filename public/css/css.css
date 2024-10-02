@@ -16,17 +16,41 @@ h1 {
    /* font-weight: bold;*/
     text-transform: uppercase;
     margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
     font-size: 1.75rem;
     margin-bottom: 15px;
+    
 }
 
 /* Estilo para las botellas */
 .botellas {
     max-width: 200px;
     height: 180px; 
+}
+.letra-capital::first-letter {
+    font-size: 2.5em; /* Tamaño de la letra capital */
+    font-weight: bold; /* Negrita */
+    float: left; /* Flota a la izquierda */
+    margin-right: 2px; /* Espaciado a la derecha */
+    line-height: 1; /* Alineación vertical */
+    color: #800000; /* Color cálido, puedes cambiarlo */
+}
+.decoracion {
+    position: relative;
+    margin: 20px 0;
+}
+
+.decoracion::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px; /* Espesor de la línea */
+    background: #800000; /* Color de la línea */
+    top: 120%; /* Posición vertical */
 }
 
 /* Estilo para los artículos del blog */
@@ -76,12 +100,14 @@ section img {
 /* Estilo para la sección de asesorías */
 .asesorias-section {
     margin-top: 40px;
+    
 }
 
 .asesorias-section h1 {
     font-size: 2rem;
     color: #343a40;
     margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .asesorias-section div {
@@ -89,7 +115,7 @@ section img {
     padding: 20px;
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
 }
 
 /* Estilo para el texto de asesorías */
@@ -123,7 +149,6 @@ section img {
 
 .card-img-top {
     position: relative;
-    /* Ajusta este valor si es necesario */
     left: 0; /* Alinea a la izquierda */
     width: 100%; /* Ocupa todo el ancho de la tarjeta */
     max-height: 150px; /* Ajusta la altura según sea necesario */
@@ -152,7 +177,9 @@ section img {
 }
 
 
-
+.nosotros{
+    border-bottom: 50%;
+}
 .card-title {
     font-size: 1.5rem;
     color: #343a40;

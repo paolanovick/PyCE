@@ -39,6 +39,9 @@ Route::middleware('auth')->group(function () {
 
     // Rutas de Vinos
     Route::resource('vinos', VinoController::class)->names('vinos');
+    Route::delete('/vinos/{id}', [VinoController::class, 'destroy'])->name('vinos.destroy');
+    Route::get('/vinos/{id}/edit', [VinoController::class, 'edit'])->name('vinos.edit');
+
     // Rutas de Blog
     Route::resource('blogs', BlogController::class)->names('blogs');
 

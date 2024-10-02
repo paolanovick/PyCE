@@ -22,14 +22,14 @@
                         <td>{{ $categoria_asesoria->precio_mensual }}</td>
                         <td>
                             <a href="{{ route('categoria_asesorias.edit', ['categoria_asesoria' => $categoria_asesoria]) }}"
-                                class="btn btn-primary">Editar</a>
+                                class="btn btn-primary w-100 p-2 m-2">Editar</a>
 
                             <form
                                 action="{{ route('categoria_asesorias.destroy', ['categoria_asesoria' => $categoria_asesoria]) }}"
                                 method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                <button type="submit" class="btn btn-danger w-100 p-2 m-2">Eliminar</button>
                             </form>
                         </td>
                     </tr>

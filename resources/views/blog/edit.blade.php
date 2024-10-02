@@ -29,7 +29,7 @@
                 <input type="file" class="form-control" id="imagen" name="imagen">
             </div>
 
-            <button type="submit" class="btn btn-primary">Actualizar Blog</button>
+            <button type="submit" class="btn btn-primary ">Actualizar Blog</button>
         </form>
     </div>
 </x-layout>

@@ -42,7 +42,7 @@
             <input type="email" class="form-control" id="email" name="email" required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Suscribirse</button>
+        <button type="submit" class="btn btn-primary" style="margin: 30px; background-color: #800000;">Suscribirse</button>
     </form>
 
 

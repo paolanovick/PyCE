@@ -5,7 +5,7 @@
     <p><strong>Precio Mensual:</strong> ${{ $asesoria->precio_mensual }}</p>
 
     <!-- Botón para solicitar la asesoría -->
-    <a href="{{ route('asesorias.request', $asesoria->id) }}" class="btn btn-primary-violeta">Solicitar Asesoría</a>
+    <a href="{{ route('asesorias.request', $asesoria->id) }}" class="btn " style="margin: 30px; background-color: #800000; color:white">Solicitar Asesoria</a>
 
 
 

@@ -26,8 +26,9 @@
             <input type="email" id="email" name="email" class="form-control" required>
         </div>
         
-        <button type="submit" class="btn btn-primary-violeta">Enviar Solicitud</button>
+        <button type="submit" class="btn " style="margin: 30px; background-color: #800000; color:white" >Enviar Solicitud</button>
     </form>
+    
 
     @if(session('success'))
         <div class="alert alert-success">

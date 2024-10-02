@@ -42,7 +42,7 @@
             <input type="text" id="email" name="email" class="form-control" required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+        <button type="submit" class="btn " class="btn " style="margin: 30px; background-color: #800000; color:white">Enviar Solicitud</button>
     </form>
 
 

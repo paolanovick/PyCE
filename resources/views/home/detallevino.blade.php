@@ -30,7 +30,8 @@
 
                 <form action="{{ route('vinos.comprar', $vino) }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-primary">Comprar</button>
+                    <button type="submit" class="btn " style="margin: 30px; background-color: #800000; color: white">Comprar</button>
+
                 </form>
             </div>
         </div>

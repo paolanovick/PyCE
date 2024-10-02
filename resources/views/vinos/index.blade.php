@@ -31,11 +31,12 @@
                         <td>${{ $vino->precio }}</td>
                         <!-- Columna para los botones de editar y eliminar -->
                         <td>
-                            <a href="{{ route('vinos.edit', $vino->id) }}" class="btn btn-primary">Editar</a>
-                            <form action="{{ route('vinos.destroy', $vino->id) }}" method="POST" style="display: inline;">
+                            <a href="{{ route('vinos.edit', $vino->id) }}" class="btn btn-primary p-2 w-100 p-2 m-2">Editar</a>
+
+                            <form action="{{ route('vinos.destroy', $vino->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                <button type="submit" class="btn btn-danger w-100 p-2 m-2">Eliminar</button>
                             </form>
                         </td>
                     </tr>

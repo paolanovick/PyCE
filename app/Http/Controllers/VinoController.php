@@ -46,7 +46,7 @@ class VinoController extends Controller
         $vino->nombre = $request->nombre;
         $vino->descripcion = $request->descripcion;
         $vino->precio = $request->precio;
-        $vino->registrado = Auth::user()->id;
+       
 
         if ($request->hasFile('imagen')) {
             $vino->imagen = $request->file('imagen')->store('imagenes', 'public');
@@ -90,26 +90,44 @@ class VinoController extends Controller
             'nombre' => 'required|string|max:255',
             'descripcion' => 'nullable|string',
             'precio' => 'required|numeric',
-            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Cambiado a nullable
             // Otros campos...
         ]);
 
-        $vino->update([
-            'precio' => $request->precio
-        ]);
-        //mensaje de respuesta 
-        return redirect()->route('vinos.index')->with('success', 'Vino actualizado con éxito.');
-        //return $request->all();
+        // Preparar los datos de actualización
+        $data = [
+            'precio' => $request->precio,
+            'nombre' => $request->nombre,
+            'descripcion' => $request->descripcion,
+            // Otros campos...
+        ];
 
+        // Si hay una nueva imagen, se guarda
+        if ($request->hasFile('imagen')) {
+            $data['imagen'] = $request->file('imagen')->store('imagenes'); // Asegúrate de tener el disco configurado
+        }
+
+        $vino->update($data); // Actualiza el modelo
+
+        return redirect()->route('vinos.index')->with('success', 'Vino actualizado con éxito.');
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $vino = Vino::find($id);
+
+        if ($vino) {
+            $vino->delete();
+            return redirect()->route('vinos.index')->with('success', 'Vino eliminado exitosamente.');
+        }
+
+        return redirect()->route('vinos.index')->with('error', 'Vino no encontrado.');
     }
+
 
     public function vinos()
     {

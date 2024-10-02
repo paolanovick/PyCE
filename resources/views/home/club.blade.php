@@ -54,7 +54,7 @@
                         <h5 class="card-title">{{ $club->nombre }}</h5>
                         <p class="card-text">{{ $club->descripcion }}</p>
                         <p><strong>Precio Mensual:</strong> ${{ $club->precio_mensual }}</p>
-                        <a href="{{ route('home.formsuscripcion', ['club' => $club]) }}" class="btn btn-primary">Más
+                        <a href="{{ route('home.formsuscripcion', ['club' => $club]) }}" class="btn " style="margin: 30px; background-color: #800000; color:white">Más
                             Información</a>
                     </div>
                 </div>

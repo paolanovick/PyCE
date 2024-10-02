@@ -19,21 +19,19 @@
             <p>Garantía de confidencialidad y objetividad en el proceso de análisis y en los resultados.</p>
         </div>
 
-        <div>
+        <div class="row">
             @forelse($CategoriaAsesorias as $CategoriaAsesoria)
-                <div class="col-md-4">
-
-
-                    <h5 class="card-title">{{ $CategoriaAsesoria->nombre }}</h5>
-                    <p class="card-text">{{ $CategoriaAsesoria->descripcion }}</p>
-
-                    <!-- Botón de Más Información -->
-                    <a href="{{ route('home.asesoria', ['categoriaasesoria' => $CategoriaAsesoria]) }}"
-                        class="btn btn-primary">Más
-                        Información</a>
-
-
-
+                <div class="col-md-4 mb-4"> <!-- Tres tarjetas por fila en pantallas medianas o más grandes -->
+                    <div class="card h-100"> <!-- Card para hacer las tarjetas del mismo tamaño -->
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $CategoriaAsesoria->nombre }}</h5>
+                            <p class="card-text">{{ $CategoriaAsesoria->descripcion }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{{ route('home.asesoria', ['categoriaasesoria' => $CategoriaAsesoria]) }}" class="btn " style=" background-color: #800000; color:white">Más
+                            Información</a>
+                        </div>
+                    </div>
                 </div>
             @empty
                 <p class="no-asesorias">No hay asesorías disponibles.</p>

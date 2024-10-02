@@ -1,7 +1,12 @@
 <x-app :title="'Agregar Blog'">
     <div class="container mt-4">
         <h2>Agregar Nuevo Blog</h2>
-
+<!-- Mostrar la imagen después de ser cargada -->
+@if (isset($nombreImagen))
+    <div class="mt-3">
+        <img src="{{ asset('storage/' . $nombreImagen) }}" alt="Imagen subida" style="max-width: 100%; height: auto;">
+    </div>
+@endif
         <!-- Formulario para crear un nuevo blog -->
         <form action="{{ route('blogs.store') }}" method="POST" enctype="multipart/form-data">
             @csrf

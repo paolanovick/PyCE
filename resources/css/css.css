@@ -126,9 +126,9 @@ section img {
 .asesorias-section div {
     margin-bottom: 30px;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #f40707;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(230, 4, 4, 0.1);
 }
 
 /* Estilo para el texto de asesorías */
@@ -239,6 +239,21 @@ article img {
 article:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más grande al hacer hover */
 }
+.col-md-6 .nosotros {
+    border-bottom: 5px solid red; /* Asegúrate de que el estilo se aplique */
+    padding-bottom: 10px; /* Espacio adicional */
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+img, svg {
+    vertical-align: middle;
+}
+
+
+
 
 /* Estilo para el banner del título principal */
 .banner {
